@@ -1,4 +1,4 @@
-import { MoonRatAirdrop } from './moonrat-airdrop'
+// import { MoonRatAirdrop } from './moonrat-airdrop'
 
 export const MoonRat = {
   address: process.env.VUE_APP_XBC_CONTRACT_ADDRESS,
@@ -38,12 +38,12 @@ export const getMoonRatPoolContract = async(web3Client) => {
   )
 }
 
-export const getMoonRatAirdropBalance = async(web3Client) => {
-  const contract = await getMoonRatContract(web3Client)
-  const balance = await contract.methods.balanceOf(MoonRatAirdrop.address).call()
-  const decimals = await contract.methods.decimals().call()
-  return balance / (10 ** decimals)
-}
+// export const getMoonRatAirdropBalance = async(web3Client) => {
+//   const contract = await getMoonRatContract(web3Client)
+//   const balance = await contract.methods.balanceOf(MoonRatAirdrop.address).call()
+//   const decimals = await contract.methods.decimals().call()
+//   return balance / (10 ** decimals)
+// }
 
 export const getMoonRatBalance = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
