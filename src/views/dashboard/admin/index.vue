@@ -37,7 +37,7 @@
         @disruptiveTransfer="whaleTransfer"
         @closeDialogDisruptive="closeDialogDisruptive"
       />
-      <section6 />
+<!--      <section6 />-->
       <!--      <section5 />-->
     </div>
 
@@ -61,12 +61,12 @@ import {
   getMoonRatBalance,
   subscribeClaimBNBSuccessfully
 } from '@/libs/moonrat'
-import Section6 from './components/moonrat/Section6'
+// import Section6 from './components/moonrat/Section6'
 
 export default {
   name: 'DashboardAdmin',
   components: {
-    Section6,
+    // Section6,
     Section2,
     // Section5,
     Section4,

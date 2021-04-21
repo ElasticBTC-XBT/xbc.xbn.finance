@@ -1,8 +1,8 @@
 import { MoonRatAirdrop } from './moonrat-airdrop'
 
 export const MoonRat = {
-  address: process.env.VUE_APP_MOONRAT_CONTRACT_ADDRESS,
-  jsonInterface: require('../assets/contracts/MoonRatToken.json')
+  address: process.env.VUE_APP_XBC_CONTRACT_ADDRESS,
+  jsonInterface: require('../assets/contracts/XBCToken.json')
 }
 
 export const MoonRatLiquidityPool = {
