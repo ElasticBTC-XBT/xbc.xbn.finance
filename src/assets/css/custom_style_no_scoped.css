@@ -187,6 +187,10 @@
     display: none;
 }
 
+.el-notification {
+    border-radius: 0px!important;
+}
+
 .section-3 .el-icon-question, .section-4 .el-icon-question {
     color: #dd9c3c;
 }
