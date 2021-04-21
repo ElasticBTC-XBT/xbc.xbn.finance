@@ -47,7 +47,7 @@
     <el-col :xs="24" :sm="12" :lg="8" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('purchases')">
         <div class="card-panel-icon-wrapper">
-          <img :src="current_mrat_price">
+          <img :src="current_xbc_price">
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
@@ -103,7 +103,7 @@
     <el-col :xs="24" :sm="12" :lg="8" class="card-panel-col">
       <div class="card-panel" @click="handleSetLineChartData('shoppings')">
         <div class="card-panel-icon-wrapper icon-shopping">
-          <img :src="mrat_banlance">
+          <img :src="xbc_banlance">
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
@@ -123,12 +123,12 @@
 <script>
 import CountTo from 'vue-count-to'
 
-import max_trans from '@/assets/images/new-icon/max_trans.png'
+import max_trans from '@/assets/images/new-icon/new/max_trans.png'
 import total_liquid from '@/assets/images/new-icon/total_liquid.png'
-import current_mrat_price from '@/assets/images/new-icon/current_mrat_price.png'
-import total_bnb_liquid from '@/assets/images/new-icon/total_bnb_liquid.png'
-import total_bnb_reward from '@/assets/images/new-icon/total_bnb_reward.png'
-import mrat_banlance from '@/assets/images/new-icon/mrat_banlance.png'
+import current_xbc_price from '@/assets/images/new-icon/new/current_xbc_price.png'
+import total_bnb_liquid from '@/assets/images/new-icon/new/total_bnb_liquid.png'
+import total_bnb_reward from '@/assets/images/new-icon/new/total_bnb_reward.png'
+import xbc_banlance from '@/assets/images/new-icon/new/xbc_banlance.png'
 
 export default {
   components: {
@@ -147,10 +147,10 @@ export default {
     return {
       max_trans: max_trans,
       total_liquid: total_liquid,
-      current_mrat_price: current_mrat_price,
+      current_xbc_price: current_xbc_price,
       total_bnb_liquid: total_bnb_liquid,
       total_bnb_reward: total_bnb_reward,
-      mrat_banlance: mrat_banlance
+      xbc_banlance: xbc_banlance
     }
   },
   methods: {
