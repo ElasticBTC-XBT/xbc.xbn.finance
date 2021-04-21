@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
     <transition name="sidebarLogoFade">
-      <a v-if="collapse" class="sidebar-logo-link" href="https://moonrat.finance" target="_blank">
+      <a v-if="collapse" class="sidebar-logo-link" href="https://xbc.finance/xbc" target="_blank">
         <img v-if="logo" :src="logo" class="sidebar-logo">
         <h1 v-else class="sidebar-title">{{ title }} </h1>
       </a>
@@ -11,7 +11,7 @@
 
 <script>
 
-import MoonRatLoGo from '@/assets/images/MoonRat.png'
+import XBCtLoGo from '@/assets/images/XBC-logo.png'
 
 export default {
   name: 'SidebarLogo',
@@ -23,8 +23,8 @@ export default {
   },
   data() {
     return {
-      title: 'MoonRat Dashboard',
-      logo: MoonRatLoGo
+      title: 'XBC Dashboard',
+      logo: XBCtLoGo
     }
   }
 }

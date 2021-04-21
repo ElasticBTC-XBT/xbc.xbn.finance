@@ -4,7 +4,7 @@
 
     <div>
       Disruptive Transfer between 2 wallets <span style="margin-left: 20px">
-        <a href="https://docs.moonrat.finance/innovation/anti-whales" target="_blank"><i class="el-icon-question" /></a>
+        <a href="https://docs.xbc.xbn.finance/innovation/anti-whales" target="_blank"><i class="el-icon-question" /></a>
       </span>
 
       <span style="margin-left: 40px; font-weight: bold">
@@ -17,11 +17,11 @@
     <!--    </div>-->
 
     <div class="form-wrapper">
-      <el-form label-width="140px">
+      <el-form label-width="200px">
         <el-form-item label="Recipient (address)">
           <el-input v-model="recipient" />
         </el-form-item>
-        <el-form-item label="Amount ($MRAT)">
+        <el-form-item label="Amount ($XBC)">
           <el-input v-model="amount">
             <el-button slot="append" style="color: white" @click="amount = mratBalance * 9999/10000">Max</el-button>
           </el-input>
@@ -38,18 +38,18 @@
     </div>
 
     <el-dialog
-      title="MoonRat.finance"
+      title="xbc.xbn.finance"
       :visible.sync="dialogSuccess"
       width="30%"
     >
       <div class="content-dialog-claim-success">
         <!--        <img :src="congrateImage" style="width:200px"/>-->
-        <img :src="moonRatLogo" style="width:200px">
+        <img :src="xbcLogo" style="width:200px">
         <div class="text-1">
           Congratulations!
         </div>
         <div class="text-2">
-          You transferred <span class="bnb">{{ computedAmount }} $MRAT</span>
+          You transferred <span class="bnb">{{ computedAmount }} $XBC</span>
         </div>
         <div class="text-4">
           to {{ recipient }}
@@ -75,7 +75,7 @@
 
 <script>
 
-import moonRatLogo from '@/assets/images/anti_whales.png'
+import xbcLogo from '@/assets/images/anti_whales.png'
 
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 // import VueGoodshareReddit from "vue-goodshare/src/providers/Reddit.vue";
@@ -106,7 +106,7 @@ export default {
       recipient: '',
       amount: 0,
       dialogSuccess: false,
-      moonRatLogo: moonRatLogo,
+      xbcLogo: xbcLogo,
       loadingSending: false
     }
   },
@@ -121,14 +121,14 @@ export default {
     },
 
     pageTitle() {
-      return 'MoonRat Finance'
+      return 'XBC Finance'
     },
     pageUrl() {
-      return 'https://app.moonrat.finance'
+      return 'https://xbc.xbn.finance'
     },
     pageQuote() {
-      return 'I just collected ' + this.displayedReceivedETH + ' BNB at MoonRat.Finance! You should give it a try!\n' +
-        '#MoonRat #EarnBNB #BinanceSmartChain #BSC #MRAT'
+      return 'I just collected ' + this.displayedReceivedETH + ' BNB at xbc.xbn.finance! You should give it a try!\n' +
+        '#XBC #EarnBNB #BinanceSmartChain #BSC'
     }
   },
   watch: {
@@ -188,8 +188,8 @@ export default {
   margin-top: 50px;
   background-color: white;
   padding: 40px;
-  border-radius: 50px;;
-  box-shadow: 0 31px 35px rgb(0 0 0 / 10%);
+  border-radius: 0px;
+  box-shadow: 0 32px 64px rgb(24 35 52 / 24%);
 
   .form-wrapper {
     width: 50%;

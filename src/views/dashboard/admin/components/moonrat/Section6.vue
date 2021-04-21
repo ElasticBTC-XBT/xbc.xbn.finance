@@ -146,14 +146,14 @@ export default {
     //   return endDate.diff(eventdate, 'days')
     // },
     pageTitle() {
-      return 'MoonRat Finance'
+      return 'XBC Finance'
     },
     pageUrl() {
-      return 'https://app.moonrat.finance'
+      return 'https://xbc.xbn.finance'
     },
     pageQuote() {
-      return 'I just collected ' + this.displayedReceivedETH + ' BNB at MoonRat.Finance! You should give it a try!\n' +
-                    '#MoonRat #EarnBNB #BinanceSmartChain #BSC #MRAT'
+      return 'I just collected ' + this.displayedReceivedETH + ' BNB at xbc.xbn.finance! You should give it a try!\n' +
+        '#XBC #EarnBNB #BinanceSmartChain #BSC'
     }
   },
   created() {
@@ -183,8 +183,8 @@ export default {
   .section-3 {
     background-color: white;
     padding: 40px;
-    border-radius: 50px;;
-    box-shadow: 0 31px 35px rgb(0 0 0 / 10%);
+    border-radius: 0px;;
+    box-shadow: 0 32px 64px rgb(24 35 52 / 24%);
     margin-top: 50px;
 
     .claim-bnb-wrapper {

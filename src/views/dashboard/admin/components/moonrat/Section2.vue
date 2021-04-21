@@ -17,7 +17,7 @@
       </div>
       <div class="line-4">
         If you have any questions, please ask us
-        <a href="https://t.me/MoonRatFinance" target="_blank">here</a>
+        <a href="https://t.me/elasticbitcoinxbt" target="_blank">here</a>
       </div>
     </div>
 

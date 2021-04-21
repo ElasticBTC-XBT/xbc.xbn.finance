@@ -46,13 +46,13 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'MoonRat Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: 'XBC Dashboard', icon: 'dashboard', affix: true }
       }
       // {
       //   path: 'test-popup',
       //   component: () => import('@/views/dashboard/index-test-popup'),
       //   name: 'TestPopup',
-      //   meta: { title: 'MoonRat Dashboard', icon: 'dashboard', affix: true }
+      //   meta: { title: 'XBC Dashboard', icon: 'dashboard', affix: true }
       // }
     ]
   }

@@ -11,7 +11,7 @@
             Max transaction amount
           </div>
           <div>
-            <span style="font-size: 15px">$MRAT</span>
+            <span style="font-size: 15px">$XBC</span>
             <count-to :start-val="0" :end-val="maxTxAmount" :decimals="0" :duration="1000" class="card-panel-num" />
             <a @click="copyMaxTransaction"><i class="el-icon-document-copy" /></a>
             <span>  |  </span>
@@ -51,7 +51,7 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Current 1 mil $MRAT Price
+            Current 1 mil $XBC Price
           </div>
           <span style="font-size: 15px">$</span>
           <count-to
@@ -107,9 +107,9 @@
         </div>
         <div class="card-panel-description">
           <div class="card-panel-text">
-            Your $MRAT balance
+            Your $XBC balance
           </div>
-          <span style="font-size: 15px">$MRAT</span>
+          <span style="font-size: 15px">$XBC</span>
           <count-to :start-val="0" :end-val="mratBalance" :decimals="2" :duration="1000" class="card-panel-num" />
         </div>
       </div>
@@ -221,7 +221,7 @@ export default {
 
     .card-panel {
       padding: 30px 5px;
-      border-radius: 50px;
+      border-radius: 0px;
       font-size: 12px;
       display: flex;
       flex-wrap: wrap;
@@ -230,14 +230,14 @@ export default {
       text-align: center;
       color: #666;
       background: #fff;
-      box-shadow: 0 31px 35px rgb(0 0 0 / 10%);
+      box-shadow: 0 32px 64px rgb(24 35 52 / 24%);
 
       .icon-people {
-        color: #04CD33;
+        color: #dd9c3c;
       }
 
       .icon-message {
-        color: #04CD33;
+        color: #dd9c3c;
       }
 
       .card-panel-icon-wrapper {

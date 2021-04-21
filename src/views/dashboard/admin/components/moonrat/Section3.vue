@@ -6,7 +6,7 @@
         My collectable BNB:
         <span style="margin-left: 20px">{{ estimatedReward }} BNB</span>
         <span style="margin-left: 20px">
-          <a href="https://docs.moonrat.finance/innovation/earn-bnb" target="_blank"><i class="el-icon-question" /></a>
+          <a href="https://docs.xbc.xbn.finance/innovation/earn-bnb" target="_blank"><i class="el-icon-question" /></a>
         </span>
       </div>
 
@@ -25,9 +25,9 @@
     <!--          </div>-->
     <!--        </div>-->
     <div class="text-center">
-      <h1 v-if="!availableToClaim" style="margin-top: 1.4em" class="text-reward">
+      <h2 v-if="!availableToClaim" style="margin-top: 1.4em" class="text-reward">
         Next collectable date: {{ nextAvailableClaimDate | date }} (at your time zone)
-      </h1>
+      </h2>
     </div>
 
     <div class="claim-bnb-wrapper">
@@ -37,13 +37,13 @@
     </div>
 
     <el-dialog
-      title="MoonRat.finance"
+      title="xbc.xbn.finance"
       :visible.sync="dialogClaimBNBSuccess"
       width="30%"
     >
       <div class="content-dialog-claim-success">
         <!--        <img :src="congrateImage" style="width:200px"/>-->
-        <img :src="moonRatLogo" style="width:200px">
+        <img :src="xbcLogo" style="width:200px">
         <div class="text-1">
           Congratulations!
         </div>
@@ -74,7 +74,7 @@
 <script>
 
 import congrate from '@/assets/images/congratulation.png'
-import moonRatLogo from '@/assets/images/RatBNB.png'
+import xbcLogo from '@/assets/images/RatBNB.png'
 import facebook from '@/assets/images/facebook.png'
 import share from '@/assets/images/share.png'
 import twitter from '@/assets/images/twitter.png'
@@ -113,7 +113,7 @@ export default {
       myClaimableBNB: 100,
       dialogClaimBNBSuccess: false,
       congrateImage: congrate,
-      moonRatLogo: moonRatLogo,
+      xbcLogo: xbcLogo,
       facebookIcon: facebook,
       twitterIcon: twitter,
       shareIcon: share,
@@ -160,14 +160,14 @@ export default {
     //   return endDate.diff(eventdate, 'days')
     // },
     pageTitle() {
-      return 'MoonRat Finance'
+      return 'XBC Finance'
     },
     pageUrl() {
-      return 'https://app.moonrat.finance'
+      return 'https://xbc.xbn.finance'
     },
     pageQuote() {
-      return 'I just collected ' + this.displayedReceivedETH + ' BNB at MoonRat.Finance! You should give it a try!\n' +
-        '#MoonRat #EarnBNB #BinanceSmartChain #BSC #MRAT'
+      return 'I just collected ' + this.displayedReceivedETH + ' BNB at xbc.xbn.finance! You should give it a try!\n' +
+        '#XBC #EarnBNB #BinanceSmartChain #BSC'
     }
   },
   created() {
@@ -197,8 +197,8 @@ export default {
 .section-3 {
   background-color: white;
   padding: 40px;
-  border-radius: 50px;;
-  box-shadow: 0 31px 35px rgb(0 0 0 / 10%);
+  border-radius: 0px;;
+  box-shadow: 0 32px 64px rgb(24 35 52 / 24%);
   margin-top: 50px;
 
   .claim-bnb-wrapper {
