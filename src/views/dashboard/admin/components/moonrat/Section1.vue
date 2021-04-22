@@ -12,7 +12,7 @@
     <div class="text-center" style="margin-top: 20px">
 
       <a
-        href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x1396148f0f45888d9a57ad9bf35077cbf9d067d9"
+        href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309cad7e0e424650844c3ab3b659315d3"
         class="btn-custom"
         target="_blank"
       >
