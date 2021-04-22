@@ -4,7 +4,7 @@
     <img :src="xbcLogo" class="image-logo">
 
     <div class="title-1">
-      <a href="https://moonrat.finance/" target="_blank">XBN Community (XBC)</a>
+      <a href="https://www.xbn.finance" target="_blank">XBN Community (XBC)</a>
     </div>
     <div class="title-2">
       A new way to earn BNB
