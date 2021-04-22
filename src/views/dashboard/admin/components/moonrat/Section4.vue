@@ -75,7 +75,7 @@
 
 <script>
 
-import xbcLogo from '@/assets/images/anti_whales.png'
+import xbcLogo from '@/assets/images/logos/xbc-icon-logo-02.png'
 
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 // import VueGoodshareReddit from "vue-goodshare/src/providers/Reddit.vue";
