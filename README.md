@@ -1,4 +1,4 @@
-### MoonRat Dashboard
+### XBC Dashboard
 
 ## Build
 
