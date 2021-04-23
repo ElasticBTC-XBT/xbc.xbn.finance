@@ -11,50 +11,6 @@
       Coming Soon
     </div>
 
-    <!--    <div class="text-center">-->
-    <!--      <h1 v-if="!availableToClaim">-->
-    <!--        Next collectable date: {{ nextAvailableClaimDate | date }}-->
-    <!--      </h1>-->
-    <!--    </div>-->
-
-    <!--    <div class="claim-bnb-wrapper">-->
-    <!--      <el-button icon="el-icon-thumb" type="primary" size="large" :disabled="!availableToClaim || mratBalance === 0"-->
-    <!--                 @click="claimBNB">-->
-    <!--        Airdrop-->
-    <!--      </el-button>-->
-    <!--    </div>-->
-
-    <!--    <el-dialog-->
-    <!--      title="MoonRat.finance"-->
-    <!--      :visible.sync="dialogClaimBNBSuccess"-->
-    <!--      width="30%"-->
-    <!--    >-->
-    <!--      <div class="content-dialog-claim-success">-->
-    <!--        <img :src="moonRatLogo" style="width:200px">-->
-    <!--        <div class="text-1">-->
-    <!--          Congratulations!-->
-    <!--        </div>-->
-    <!--        <div class="text-2">-->
-    <!--          You collect <span class="bnb">{{ displayedReceivedETH }} BNB</span>-->
-    <!--        </div>-->
-    <!--        <div class="text-3">-->
-    <!--          Next collectable date: {{ bnbReceivedData.nextAvailableClaimDate | date }}-->
-    <!--        </div>-->
-
-    <!--        <div class="button-share-wrapper">-->
-    <!--          <vue-goodshare-twitter :page_title="pageQuote" :page_url="pageUrl" has_icon/>-->
-    <!--          <vue-goodshare-facebook-->
-    <!--            :quote="pageQuote"-->
-    <!--            :page_title="pageTitle"-->
-    <!--            :page_url="pageUrl"-->
-    <!--            has_icon-->
-    <!--            button_design="flat"-->
-    <!--          />-->
-    <!--        </div>-->
-
-    <!--      </div>-->
-    <!--    </el-dialog>-->
-
   </div>
 </template>
 
@@ -90,8 +46,7 @@ export default {
   props: [
     'estimatedBNBClaim',
     'nextAvailableClaimDate',
-    'rewardCycleBlock',
-    'mratBalance'
+    'rewardCycleBlock'
   ],
   data() {
     return {
@@ -171,9 +126,7 @@ export default {
       return this.daysThrough + ' days'
     },
     claimBNB() {
-      if (this.mratBalance > 0) {
-        this.$emit('submitClaim')
-      }
+
     }
   }
 }

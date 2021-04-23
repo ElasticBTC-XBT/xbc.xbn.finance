@@ -8,7 +8,7 @@
       </span>
 
       <span style="margin-left: 40px; font-weight: bold">
-        Balance: {{ computedMratBalance }}
+        Balance: {{ computedXBCBalance }}
       </span>
     </div>
 
@@ -111,7 +111,7 @@ export default {
     }
   },
   computed: {
-    computedMratBalance() {
+    computedXBCBalance() {
       const number = Number(this.mratBalance).toFixed(5)
       return numeral(number).format('0,0.00')
     },
