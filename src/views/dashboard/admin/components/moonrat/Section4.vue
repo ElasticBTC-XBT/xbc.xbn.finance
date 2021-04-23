@@ -161,7 +161,7 @@ export default {
       if (this.amount <= this.maxTxAmount) {
         v.$swal.fire({
           title: 'Warning!',
-          html: 'Your transfer amount is less than ' + `<strong>${numeral(this.maxTxAmount).format('0,0.00')} MRAT</strong>` + ', you can transfer directly in your wallet. <br> <b style="color: red"> If you continue with the Disruptive Transfer, you will be charged for 2 BNB</b>',
+          html: 'Your transfer amount is less than ' + `<strong>${numeral(this.maxTxAmount).format('0,0.00')} XBC</strong>` + ', you can transfer directly in your wallet. <br> <b style="color: red"> If you continue with the Disruptive Transfer, you will be charged for 2 BNB</b>',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
