@@ -7,18 +7,30 @@
       <a href="https://www.xbn.finance" target="_blank">XBN Community (XBC)</a>
     </div>
     <div class="title-2">
-      A new way to earn BNB
+      Hold XBC to earn BNB and more XBC
     </div>
     <div class="text-center" style="margin-top: 20px">
 
       <a
-        href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309CaD7E0E424650844c3AB3b659315d3 "
+        href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309CaD7E0E424650844c3AB3b659315d3"
         class="btn-custom"
         target="_blank"
       >
         <i class="el-icon-shopping-cart-full" />
         Buy $XBC
       </a>
+      <p>
+        <a
+            href="https://docs.xbc.xbn.finance/"
+            class=""
+            target="_blank"
+        > White Paper
+        </a>
+        / <a href="https://twitter.com/XbcXbn">Twitter</a>
+        / <a href="https://t.me/XBCforeveryone">Telegram</a>
+        / <a href="https://www.xbn.finance/xbn/airdrop/">XBN Airdrop</a>
+        / <a href="https://www.xbn.finance/xbn/lottery/">FomoLotto</a>
+      </p>
     </div>
 
   </div>
