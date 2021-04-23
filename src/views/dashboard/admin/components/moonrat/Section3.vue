@@ -85,7 +85,6 @@ import VueGoodshareTwitter from 'vue-goodshare/src/providers/Twitter.vue'
 import moment from 'moment'
 import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 
-// import {getMoonRatBalance} from '@/libs/moonrat'
 import * as numeral from 'numeral'
 
 export default {
