@@ -4,7 +4,7 @@
     <img :src="xbcLogo" class="image-logo">
 
     <div class="title-1">
-      <a href="https://www.xbn.finance" target="_blank">XBN Community ( <a target="_blank" href="https://twitter.com/search?q=%24XBC&src=cashtag_click">$XBC</a>)</a>
+      <a href="https://twitter.com/search?q=%24XBC&src=cashtag_click" target="_blank">XBN Community ($XBC)</a>
     </div>
     <div class="title-2">
       Hold XBC to earn BNB and more XBC
