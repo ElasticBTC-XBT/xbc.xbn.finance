@@ -2,7 +2,7 @@
   "name": "moonrat-dashboard",
   "version": "4.4.0",
   "description": "Dashboard of moonrat.finance",
-  "author": "MoonRat Team",
+  "author": "XBC Team",
   "scripts": {
     "dev": "vue-cli-service serve",
     "lint": "eslint --ext .js,.vue src",

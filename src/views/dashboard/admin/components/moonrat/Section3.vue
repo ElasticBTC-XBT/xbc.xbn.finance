@@ -74,7 +74,7 @@
 <script>
 
 import congrate from '@/assets/images/congratulation.png'
-import xbcLogo from '@/assets/images/RatBNB.png'
+import xbcLogo from '@/assets/images/logos/xbc-icon-logo-02.png'
 import facebook from '@/assets/images/facebook.png'
 import share from '@/assets/images/share.png'
 import twitter from '@/assets/images/twitter.png'
@@ -85,7 +85,6 @@ import VueGoodshareTwitter from 'vue-goodshare/src/providers/Twitter.vue'
 import moment from 'moment'
 import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 
-// import {getMoonRatBalance} from '@/libs/moonrat'
 import * as numeral from 'numeral'
 
 export default {

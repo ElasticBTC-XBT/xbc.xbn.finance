@@ -8,7 +8,7 @@
       </span>
 
       <span style="margin-left: 40px; font-weight: bold">
-        Balance: {{ computedMratBalance }}
+        Balance: {{ computedXBCBalance }}
       </span>
     </div>
 
@@ -75,7 +75,7 @@
 
 <script>
 
-import xbcLogo from '@/assets/images/anti_whales.png'
+import xbcLogo from '@/assets/images/logos/xbc-icon-logo-02.png'
 
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 // import VueGoodshareReddit from "vue-goodshare/src/providers/Reddit.vue";
@@ -111,7 +111,7 @@ export default {
     }
   },
   computed: {
-    computedMratBalance() {
+    computedXBCBalance() {
       const number = Number(this.mratBalance).toFixed(5)
       return numeral(number).format('0,0.00')
     },
@@ -161,7 +161,7 @@ export default {
       if (this.amount <= this.maxTxAmount) {
         v.$swal.fire({
           title: 'Warning!',
-          html: 'Your transfer amount is less than ' + `<strong>${numeral(this.maxTxAmount).format('0,0.00')} MRAT</strong>` + ', you can transfer directly in your wallet. <br> <b style="color: red"> If you continue with the Disruptive Transfer, you will be charged for 2 BNB</b>',
+          html: 'Your transfer amount is less than ' + `<strong>${numeral(this.maxTxAmount).format('0,0.00')} XBC</strong>` + ', you can transfer directly in your wallet. <br> <b style="color: red"> If you continue with the Disruptive Transfer, you will be charged for 2 BNB</b>',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',

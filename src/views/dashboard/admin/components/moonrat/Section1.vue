@@ -4,7 +4,7 @@
     <img :src="xbcLogo" class="image-logo">
 
     <div class="title-1">
-      <a href="https://xbc.xbn.finance/" target="_blank">XBN Community (XBC)</a>
+      <a href="https://www.xbn.finance" target="_blank">XBN Community (XBC)</a>
     </div>
     <div class="title-2">
       A new way to earn BNB
@@ -12,7 +12,7 @@
     <div class="text-center" style="margin-top: 20px">
 
       <a
-        href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309cad7e0e424650844c3ab3b659315d3"
+        href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309CaD7E0E424650844c3AB3b659315d3 "
         class="btn-custom"
         target="_blank"
       >
@@ -43,9 +43,6 @@ export default {
 
   },
   methods: {
-    routerToBuyMRAT() {
-      window.open('https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x6d949f9297a522c0f97c232cc209a67bd7cfa471')
-    }
   }
 }
 </script>

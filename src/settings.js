@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Dashboard | MoonrRat.Finance',
+  title: 'Dashboard | xbc.xbn.finance',
 
   /**
    * @type {boolean} true | false

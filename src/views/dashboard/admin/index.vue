@@ -2,7 +2,7 @@
   <div class="dashboard-editor-container">
 
     <div class="title-show-mobile">
-      MoonRat Dashboard
+      XBC Dashboard
     </div>
 
     <section1 />
