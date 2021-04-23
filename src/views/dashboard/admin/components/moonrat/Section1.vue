@@ -39,13 +39,13 @@
 
       </p>
       <p style="font-style: italic">There are always something you can do everyday to help XBC grows. <br/>For example: creating your Chat Group and tell your friends.</p>
+      <p>More holders, stronger XBC,
+        <br/>more BNB to claim, more XBC to own! <br/><a href="https://docs.xbc.xbn.finance/features/transactional-tax" target="_blank" style="color: gray">(🔗 Transactional Tax)</a></p>
       <p>
         <a  type="button" role="button" title="Share on twitter" href="https://twitter.com/intent/tweet?url=https://www.xbn.finance/xbc/" rel="noopener" target="_blank" class="btn-floating btn btn-tw" style="text-align: center;">
 
           Share if you care!  <br data-v-15f5a93c=""><img data-v-15f5a93c="" src="https://i.imgur.com/1AKV1Mc.gif" style="width: 37px; display: inline-block;"></a>
       </p>
-      <p>More holders, stronger XBC,
-        <br/>more BNB to claim, more XBC to own! <br/><a href="https://docs.xbc.xbn.finance/features/transactional-tax" target="_blank" style="color: gray">(🔗 Transactional Tax)</a></p>
     </div>
 
   </div>
