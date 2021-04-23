@@ -29,11 +29,11 @@
         / <a href="https://twitter.com/XbcXbn">Twitter</a>
         / <a href="https://t.me/XBCforeveryone">Telegram</a>
         / <a href="https://www.xbn.finance/xbn/airdrop/">XBN Airdrop</a>
-        / <a href="https://www.xbn.finance/xbn/lottery/">FomoLotto</a>
+        <br/> <a href="https://www.xbn.finance/xbn/lottery/">Earn BNB with FomoLotto</a>
       </p>
       <p><b style="color:#f3aa43">
         Community driven, 100% Liquidity Pool is burned.
-
+        <br/>
         <a href="https://docs.xbc.xbn.finance/tokenomics/xbc-community-driven-token" target="_blank" style="color: gray">(🔗 Tokenomics)</a>
       </b>
 
@@ -44,7 +44,8 @@
 
           Share if you care!  <br data-v-15f5a93c=""><img data-v-15f5a93c="" src="https://i.imgur.com/1AKV1Mc.gif" style="width: 37px; display: inline-block;"></a>
       </p>
-      <p>More holders, stronger XBC, more BNB to claim, more XBC to own! <a href="https://docs.xbc.xbn.finance/features/transactional-tax" target="_blank" style="color: gray">(🔗 Transactional Tax)</a></p>
+      <p>More holders, stronger XBC,
+        <br/>more BNB to claim, more XBC to own! <br/><a href="https://docs.xbc.xbn.finance/features/transactional-tax" target="_blank" style="color: gray">(🔗 Transactional Tax)</a></p>
     </div>
 
   </div>
