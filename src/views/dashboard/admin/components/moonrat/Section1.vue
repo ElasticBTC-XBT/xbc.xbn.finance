@@ -38,7 +38,7 @@
       </b>
 
       </p>
-      <p style="font-style: italic">There are always something you can do everyday to help XBC grows. The obvious thing you can do is creating your XBC Chat Group and tell your friends.</p>
+      <p style="font-style: italic">There are always something you can do everyday to help XBC grows. <br/>For example: creating your Chat Group and tell your friends.</p>
       <p>
         <a  type="button" role="button" title="Share on twitter" href="https://twitter.com/intent/tweet?url=https://www.xbn.finance/xbc/" rel="noopener" target="_blank" class="btn-floating btn btn-tw" style="text-align: center;">
 
