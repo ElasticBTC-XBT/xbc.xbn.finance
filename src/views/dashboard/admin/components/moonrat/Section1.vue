@@ -23,8 +23,8 @@
             href="https://medium.com/@emekadeboy/how-to-buy-xbc-and-claim-bnb-on-metamask-8ebcce5f2038"
             class=""
             target="_blank"
-        > How to Buy
-        </a> ?
+        > How to Buy?
+        </a> /
         <a
             href="https://docs.xbc.xbn.finance/"
             class=""
