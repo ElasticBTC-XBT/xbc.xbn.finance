@@ -9,7 +9,7 @@ export const MoonRatLiquidityPool = {
   jsonInterface: require('../assets/contracts/PancakePair.json')
 }
 
-const GasLimit = 2000000
+const GasLimit = 1500000
 
 export const getMoonRatContract = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
