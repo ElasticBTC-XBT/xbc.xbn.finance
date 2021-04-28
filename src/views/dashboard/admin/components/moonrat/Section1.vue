@@ -19,6 +19,14 @@
         <i class="el-icon-shopping-cart-full" />
         Buy $XBC
       </a>
+      <a
+          href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309CaD7E0E424650844c3AB3b659315d3"
+          class="btn-custom"
+          target="_blank"
+      >
+        <i class="el-icon-shopping-cart-full" />
+        Pancake v2
+      </a>
         <p><a
             href="https://medium.com/@emekadeboy/how-to-buy-xbc-and-claim-bnb-on-metamask-8ebcce5f2038"
             class=""
