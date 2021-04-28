@@ -22,7 +22,7 @@
 
       <br/>
       <a
-          href="https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309CaD7E0E424650844c3AB3b659315d3"
+          href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x0321394309CaD7E0E424650844c3AB3b659315d3"
           class="btn-custom"
           target="_blank"
       >
