@@ -33,7 +33,7 @@
             href="https://medium.com/@emekadeboy/how-to-buy-xbc-and-claim-bnb-on-metamask-8ebcce5f2038"
             class=""
             target="_blank"
-        > How to Buy?
+        > How to Buy XBC
         </a> /
         <a
             href="https://docs.xbc.xbn.finance/"
@@ -44,7 +44,7 @@
         / <a href="https://twitter.com/XbcXbn">Twitter</a>
         / <a href="https://t.me/XBCforeveryone">Telegram</a>
         / <a href="https://www.xbn.finance/xbn/airdrop/">XBN Airdrop</a>
-        <br/> <a href="https://www.xbn.finance/xbn/lottery/">Earn BNB with FomoLotto</a>
+
       </p>
       <p><b style="color:#f3aa43">
         Community driven, 100% Liquidity Pool is burned.
