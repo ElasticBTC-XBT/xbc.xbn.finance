@@ -101,6 +101,28 @@
     transition: all .3s linear;
 }
 
+.btn-img-custom {
+    padding: 20px 20px 0px;
+    font-size: 14px;
+    color: white;
+    border-radius: 3px;
+    display: block;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    width: 250px;
+}
+
+.btn-img-custom img{
+    max-width: 100%;
+}
+
+.btn-img-custom:hover, .btn-img-custom:focus {
+    cursor: pointer;
+    color: white;
+    background-position: 100%;
+    transition: all .3s linear;
+}
 
 .el-input__inner {
     border-radius: 50px !important;
