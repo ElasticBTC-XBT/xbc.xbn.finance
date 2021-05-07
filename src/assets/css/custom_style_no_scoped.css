@@ -101,6 +101,20 @@
     transition: all .3s linear;
 }
 
+.btn-cus-default{
+    background-color: #e4e6e6 !important;
+    color: #3d3d3d;
+    padding: 5px 20px;
+    margin: 10px auto 20px;
+}
+
+.btn-cus-default:hover, .btn-cus-default:focus{
+    cursor: pointer;
+    background-position: 100%;
+    background-color: #a4a6a6 !important;
+    transition: all .3s linear;
+}
+
 .btn-img-custom {
     padding: 20px 20px 0px;
     font-size: 14px;
@@ -123,6 +137,8 @@
     background-position: 100%;
     transition: all .3s linear;
 }
+
+
 
 .el-input__inner {
     border-radius: 50px !important;
