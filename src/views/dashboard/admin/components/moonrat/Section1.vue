@@ -122,10 +122,8 @@
             >
           </div>
         </div>
-        <p style="margin-top: 35px">
+        <p style="padding-top: 25px">
           <a
-            type="button"
-            role="button"
             title="Share on twitter"
             href="https://twitter.com/intent/tweet?url=https://www.xbn.finance/xbc/"
             rel="noopener"
