@@ -102,8 +102,10 @@
             >
           </div>
           <div class="sub-title-2">
-            There are always something you can do everyday to help XBC grows.<br />
-            <b>For example:</b> creating your Chat Group and tell your friends.
+            $XBC is community coin, each holder is a marketer. If  you want to earn more $BNB, then invite more holders.
+            Work for your investment!
+            <br />
+            <b>E.g:</b> creating your Chat Group and tell your friends about XBC
           </div>
         </div>
         <div>
