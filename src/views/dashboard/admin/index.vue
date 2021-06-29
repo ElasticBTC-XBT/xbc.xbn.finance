@@ -12,6 +12,7 @@
     </div>
 
     <div v-else>
+      <last-survior></last-survior>
       <panel-group
         :max-tx-amount="contractInfo.maxTxAmount || 0"
         :max-bnb-amount="contractInfo.maxBNBAmount || 0"
@@ -21,6 +22,7 @@
         :bnb-in-reward-pool="contractInfo.bnbInPool"
         :mrat-balance="mratBalance"
       />
+      
       <section3
         :reward-cycle-block="contractInfo.rewardCycleBlock"
         :estimated-b-n-b-claim="contractInfo.estimatedBNBReward"
@@ -29,14 +31,14 @@
         :loading-collect-b-n-b="loadingCollectBNB"
         @submitClaim="submitClaimBNB"
       />
-      <section4
+      <!-- <section4
         :max-tx-amount="contractInfo.maxTxAmount || 0"
         :mrat-balance="mratBalance"
         :show-popup-disruptive="showPopupDisruptive"
         :close-loading-disruptive="closeLoadingDisruptive"
         @disruptiveTransfer="whaleTransfer"
         @closeDialogDisruptive="closeDialogDisruptive"
-      />
+      /> -->
 <!--      <section6 />-->
       <!--      <section5 />-->
     </div>
@@ -47,8 +49,9 @@
 <script>
 import PanelGroup from './components/PanelGroup'
 import Section1 from './components/moonrat/Section1'
+import LastSurvior from './components/moonrat/LastSurvior.vue'
 import Section3 from './components/moonrat/Section3'
-import Section4 from './components/moonrat/Section4'
+// import Section4 from './components/moonrat/Section4'
 // import Section5 from './components/moonrat/Section5'
 import Section2 from './components/moonrat/Section2'
 
@@ -69,10 +72,11 @@ export default {
     // Section6,
     Section2,
     // Section5,
-    Section4,
+    // Section4,
     Section3,
     Section1,
-    PanelGroup
+    PanelGroup,
+    LastSurvior
   },
   mixins: [WalletConnectWrap],
   data() {
