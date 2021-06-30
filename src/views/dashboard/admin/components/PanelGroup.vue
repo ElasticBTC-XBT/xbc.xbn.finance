@@ -14,10 +14,10 @@
             <span style="font-size: 15px">$XBC</span>
             <count-to :start-val="0" :end-val="maxTxAmount" :decimals="0" :duration="1000" class="card-panel-num" />
             <a @click="copyMaxTransaction"><i class="el-icon-document-copy" /></a>
-            <span>  |  </span>
-            <span style="font-size: 15px">$BNB</span>
-            <count-to :start-val="0" :end-val="maxBnbAmount" :decimals="4" :duration="1000" class="card-panel-num" />
-            <a @click="copyMaxBNBTx"><i class="el-icon-document-copy" /></a>
+<!--            -->
+<!--            <span style="font-size: 15px">$BNB</span>-->
+<!--            <count-to :start-val="0" :end-val="maxBnbAmount" :decimals="4" :duration="1000" class="card-panel-num" />-->
+<!--            <a @click="copyMaxBNBTx"><i class="el-icon-document-copy" /></a>-->
           </div>
         </div>
 
