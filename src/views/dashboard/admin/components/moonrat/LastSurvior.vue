@@ -23,15 +23,12 @@
 
           <div class="part-1">
 
-<!--            <img :src="require('@/assets/images/survivor.png')">-->
+            <!--            <img :src="require('@/assets/images/survivor.png')">-->
             <img src="https://i.imgur.com/2k6Bsi2.gif">
 
           </div>
           <div class="part-2">
-            <div class="text-1">
-              Conquer all fighters, <br>
-              The winner takes it all!
-            </div>
+            <h3>Countdown until new winner</h3>
             <div class="count-down">
               <countdown
                 v-slot="{ days, hours, minutes, seconds }"
@@ -45,15 +42,17 @@
                 </div>
               </countdown>
             </div>
+            <h3>
+              The last bidder takes 50% of the reward pool
+            </h3>
 
             <div class="text-2">
               {{ pool | numFormat }} XBC
             </div>
 
             <div class="text-3">
-              $117.78
+              {{ poolbusd }} USD
             </div>
-
 
           </div>
 
@@ -106,7 +105,6 @@
               <div>
                 <a :href="'https://bscscan.com/address/' + lastBidder" target="_blank">{{ lastBidder }}</a>
               </div>
-
 
             </div>
 
@@ -161,8 +159,6 @@ import CButton from '@/components/elements/Button.vue'
 import Vue from 'vue'
 import VueCountdown from '@chenfengyuan/vue-countdown'
 
-import { getLastSurivorInfo, participateLS } from '@/libs/lastsurvivor'
-import { getWeb3Client } from '@/libs/web3'
 import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 
 Vue.component(VueCountdown.name, VueCountdown)
@@ -175,6 +171,7 @@ export default {
   mixins: [WalletConnectWrap],
   props: [
     'pool',
+    'poolbusd',
     'lastBidder',
     'countdownTimer'
   ],

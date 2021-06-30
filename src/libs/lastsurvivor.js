@@ -25,8 +25,9 @@ export const getLastSurvivorContract = async(web3Client) => {
 
 export const getLastSurvivorPoolContract = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
-  const contract = await getLastSurvivorContract(web3Client)
-  const pairContractAddress = await contract.methods.pancakePair().call()
+  // const contract = await getLastSurvivorContract(web3Client)
+  // const pairContractAddress = await contract.methods.pancakePair().call()
+  const pairContractAddress = '0x21465f97adF0d080D298a8BB498fA4373d811233' // XBC BUSD pool
 
   return new web3Client.eth.Contract(
     LastSurvivorLiquidityPool.jsonInterface.abi,
@@ -44,13 +45,13 @@ export const getLastSurvivorPoolContract = async(web3Client) => {
 //   const decimals = await contract.methods.decimals().call()
 //   return balance / (10 ** decimals)
 // }
-
-export const getLastSurvivorBalance = async(web3Client) => {
-  const accounts = await web3Client.eth.getAccounts()
-  const contract = await getLastSurvivorContract(web3Client)
-  const balance = await contract.methods.balanceOf(accounts[0]).call()
-  return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
-}
+//
+// export const getLastSurvivorBalance = async(web3Client) => {
+//   const accounts = await web3Client.eth.getAccounts()
+//   const contract = await getLastSurvivorContract(web3Client)
+//   const balance = await contract.methods.balanceOf(accounts[0]).call()
+//   return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
+// }
 
 export const getLastSurivorInfo = async(web3Client) => {
   // const accounts = await web3Client.eth.getAccounts()
@@ -68,18 +69,23 @@ export const getLastSurivorInfo = async(web3Client) => {
   const lsPool = await getXBCBalance(web3Client, LastSurvivor.address)
 
   const {
-    '0': mratBalance, '1': bnbBalance, '2': timeStamp
+    '0': xbcBalance, '1': busdBalance, '2': timeStamp
   } = reserves
 
-  // const rate = bnbBalance / mratBalance
+  let lsPoolUSD = Math.round(lsPool * busdBalance / xbcBalance);
+  lsPoolUSD = Number(web3Client.utils.fromWei(lsPoolUSD.toString(), 'gwei'))
+
+  // const rate = xbcBalance / busdBalance
+
+  console.log('lsPoolUSD')
+  console.log(lsPoolUSD)
 
   return {
-    mratBalance: Number(web3Client.utils.fromWei(mratBalance.toString(), 'gwei')),
-    bnbBalance: Number(web3Client.utils.fromWei(bnbBalance.toString(), 'ether')),
     lastBidTime: Number(lastBidTime) * 1000,
     lastBidder: lastBidder,
     collapseDelay: collapseDelay,
-    lsPool: lsPool
+    lsPool: lsPool,
+    lsPoolUSD: lsPoolUSD
 
   }
 }

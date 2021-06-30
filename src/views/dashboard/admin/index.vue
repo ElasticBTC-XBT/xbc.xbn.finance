@@ -16,6 +16,7 @@
         :last-bidder="lastBidder"
         :countdown-timer="countdownTimer"
         :pool="lsPool"
+        :poolbusd="lsPoolUSD"
         @playLS="play"
       />
       <panel-group
@@ -93,6 +94,7 @@ export default {
       loadingCollectBNB: false,
       lastBidder: null,
       lsPool: 0,
+      lsPoolUSD: 0,
       countdownTimer: 0
     }
   },
@@ -174,6 +176,8 @@ export default {
       //  this.$set(this, 'lastBidTime', result.lastBidTime)
       this.$set(this, 'lastBidder', result.lastBidder)
       this.$set(this, 'lsPool', result.lsPool)
+      this.$set(this, 'lsPoolUSD', result.lsPoolUSD)
+
       const collapseDelay = result.collapseDelay
       let countdownTimer = (collapseDelay * 1000 + result.lastBidTime - new Date().getTime())
       if (countdownTimer < 0) {
