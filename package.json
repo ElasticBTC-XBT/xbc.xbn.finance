@@ -1,7 +1,7 @@
 {
-  "name": "moonrat-dashboard",
+  "name": "xbc-dashboard",
   "version": "4.4.0",
-  "description": "Dashboard of moonrat.finance",
+  "description": "Dashboard of xbc.finance",
   "author": "XBC Team",
   "scripts": {
     "dev": "vue-cli-service serve",
