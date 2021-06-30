@@ -9,7 +9,7 @@ export const LastSurvivorLiquidityPool = {
   jsonInterface: require('../assets/contracts/PancakePair.json')
 }
 
-const GasLimit = 500000
+const GasLimit = 1500000
 
 export const getLastSurvivorContract = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
