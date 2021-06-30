@@ -28,8 +28,9 @@
 
           </div>
           <div class="part-2">
-            <h3>Countdown until new winner</h3>
-            <div class="count-down">
+
+            <div class="count-down" v-if="countdownTimer>0">
+              <h3>Countdown until new winner</h3>
               <countdown
                 v-slot="{ days, hours, minutes, seconds }"
                 :time="countdownTimer"
