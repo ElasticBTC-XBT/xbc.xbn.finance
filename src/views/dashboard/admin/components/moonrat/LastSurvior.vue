@@ -23,7 +23,8 @@
 
           <div class="part-1">
 
-            <img :src="require('@/assets/images/survivor.png')">
+<!--            <img :src="require('@/assets/images/survivor.png')">-->
+            <img src="https://i.imgur.com/2k6Bsi2.gif">
 
           </div>
           <div class="part-2">
@@ -52,9 +53,7 @@
             <div class="text-3">
               $117.78
             </div>
-            <div class="text-4">
-              Last bidder: <a :href="'https://bscscan.com/address/' + lastBidder" target="_blank">{{ lastBidder }}</a>
-            </div>
+
 
           </div>
 
@@ -99,22 +98,15 @@
           <div class="part-2 card-wrapper">
 
             <div class="text-1">
-              Last events
+              Last Player
             </div>
 
             <div class="content-part">
 
               <div>
-                Tx: 0xf35...ecd1c
-                BID
-                10.5644 XBC
+                <a :href="'https://bscscan.com/address/' + lastBidder" target="_blank">{{ lastBidder }}</a>
               </div>
 
-              <div>
-                Tx: 0x622...8abf1
-                BID
-                10.4512 XBC
-              </div>
 
             </div>
 

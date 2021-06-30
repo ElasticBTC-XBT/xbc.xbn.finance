@@ -1,4 +1,4 @@
-import {getXBCBalance} from "@/libs/moonrat";
+import { getXBCBalance } from '@/libs/moonrat'
 
 export const LastSurvivor = {
   address: process.env.VUE_APP_LS_CONTRACT_ADDRESS,
@@ -53,7 +53,7 @@ export const getLastSurvivorBalance = async(web3Client) => {
 }
 
 export const getLastSurivorInfo = async(web3Client) => {
-  //const accounts = await web3Client.eth.getAccounts()
+  // const accounts = await web3Client.eth.getAccounts()
 
   const contract = await getLastSurvivorContract(web3Client)
   const poolContract = await getLastSurvivorPoolContract(web3Client)
@@ -88,7 +88,7 @@ export const participateLS = async(web3Client) => {
   const contract = await getLastSurvivorContract(web3Client)
   await contract.methods.participate(0).send({
     gas: GasLimit,
-    value: web3Client.utils.toWei('0.001', 'ether')
+    value: web3Client.utils.toWei('0.00011', 'ether') + 1
   })
 }
 
