@@ -89,7 +89,7 @@
               </div>
               <div v-else class="button-unlock-wallet">
                 <c-button tag="a" color="primary" wide-mobile @click="play">
-                  Play
+                  Coming Soon!
                 </c-button>
               </div>
             </div>
