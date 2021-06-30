@@ -46,7 +46,7 @@
             </div>
 
             <div class="text-2">
-              709.78 XBN
+              {{ pool | numFormat }} XBC
             </div>
 
             <div class="text-3">
@@ -107,13 +107,13 @@
               <div>
                 Tx: 0xf35...ecd1c
                 BID
-                10.5644 XBN
+                10.5644 XBC
               </div>
 
               <div>
                 Tx: 0x622...8abf1
                 BID
-                10.4512 XBN
+                10.4512 XBC
               </div>
 
             </div>
@@ -182,7 +182,7 @@ export default {
   },
   mixins: [WalletConnectWrap],
   props: [
-
+    'pool',
     'lastBidder',
     'countdownTimer'
   ],

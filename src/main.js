@@ -65,6 +65,9 @@ Vue.config.productionTip = false
 //   // We recommend adjusting this value in production
 //   tracesSampleRate: 1.0
 // })
+import numeral from 'numeral'
+import numFormat from 'vue-filter-number-format'
+Vue.filter('numFormat', numFormat(numeral))
 
 new Vue({
   el: '#app',

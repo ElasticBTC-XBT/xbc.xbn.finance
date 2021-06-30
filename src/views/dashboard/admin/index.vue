@@ -15,6 +15,7 @@
       <last-survior
         :last-bidder="lastBidder"
         :countdown-timer="countdownTimer"
+        :pool="lsPool"
         @playLS="play"
       />
       <panel-group
@@ -91,6 +92,7 @@ export default {
       closeLoadingDisruptive: false,
       loadingCollectBNB: false,
       lastBidder: null,
+      lsPool: 0,
       countdownTimer: 0
     }
   },
@@ -171,6 +173,7 @@ export default {
       const result = await getLastSurivorInfo(this.walletClient.web3Client)
       //  this.$set(this, 'lastBidTime', result.lastBidTime)
       this.$set(this, 'lastBidder', result.lastBidder)
+      this.$set(this, 'lsPool', result.lsPool)
       const collapseDelay = result.collapseDelay
       this.$set(this, 'countdownTimer', (new Date().getTime() - collapseDelay * 1000 - result.lastBidTime))
     },

@@ -1,3 +1,5 @@
+import {getXBCBalance} from "@/libs/moonrat";
+
 export const LastSurvivor = {
   address: process.env.VUE_APP_LS_CONTRACT_ADDRESS,
   jsonInterface: require('../assets/contracts/LastSurvivor.json')
@@ -51,7 +53,7 @@ export const getLastSurvivorBalance = async(web3Client) => {
 }
 
 export const getLastSurivorInfo = async(web3Client) => {
-  const accounts = await web3Client.eth.getAccounts()
+  //const accounts = await web3Client.eth.getAccounts()
 
   const contract = await getLastSurvivorContract(web3Client)
   const poolContract = await getLastSurvivorPoolContract(web3Client)
@@ -63,20 +65,21 @@ export const getLastSurivorInfo = async(web3Client) => {
   const collapseDelay = await contract.methods.collapseDelay().call()
   // const estimatedBNBReward = await contract.methods.calculateBNBReward(accounts[0]).call()
   // const rewardCycleBlock = await contract.methods.rewardCycleBlock().call()
-  // const bnbRewardPool = await web3Client.eth.getBalance(LastSurvivor.address)
+  const lsPool = await getXBCBalance(web3Client, LastSurvivor.address)
 
   const {
     '0': mratBalance, '1': bnbBalance, '2': timeStamp
   } = reserves
 
-  const rate = bnbBalance / mratBalance
+  // const rate = bnbBalance / mratBalance
 
   return {
     mratBalance: Number(web3Client.utils.fromWei(mratBalance.toString(), 'gwei')),
     bnbBalance: Number(web3Client.utils.fromWei(bnbBalance.toString(), 'ether')),
     lastBidTime: Number(lastBidTime) * 1000,
     lastBidder: lastBidder,
-    collapseDelay: collapseDelay
+    collapseDelay: collapseDelay,
+    lsPool: lsPool
 
   }
 }
