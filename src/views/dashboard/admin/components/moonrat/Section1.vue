@@ -13,9 +13,9 @@
           >
         </div>
         <img :src="xbcThumb" class="image-logo" />
-        
+
       </div>
-      
+
         <div class="text-center section-container2">
           <el-row>
             <el-col :md="12" :sm="12">
@@ -38,7 +38,7 @@
             </el-col>
           </el-row>
         </div>
-      
+
       <div class="section-container">
         <div class="title-2">Hold XBC to earn BNB and more XBC</div>
         <el-row>
@@ -127,7 +127,7 @@
         <p style="padding-top: 25px">
           <a
             title="Share on twitter"
-            href="https://twitter.com/intent/tweet?url=https://www.xbn.finance/xbc/"
+            href="https://twitter.com/intent/tweet?url=https://xbc.xbn.finance/"
             rel="noopener"
             target="_blank"
             class="btn-floating btn btn-tw"

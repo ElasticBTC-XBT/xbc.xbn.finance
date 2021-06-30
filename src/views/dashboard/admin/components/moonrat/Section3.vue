@@ -15,15 +15,6 @@
       <!--            </div>-->
     </div>
 
-    <!--        <div v-if="percentProgress < 100" class="progress-content">-->
-    <!--          <div class="progress-wrapper">-->
-    <!--            <el-progress :percentage="percentProgress" :stroke-width="24" :format="format" :text-inside="true" />-->
-    <!--          </div>-->
-
-    <!--          <div class="total-day">-->
-    <!--            {{ daysDelta }} days-->
-    <!--          </div>-->
-    <!--        </div>-->
     <div class="text-center">
       <h2 v-if="!availableToClaim" style="margin-top: 1.4em" class="text-reward">
         Next collectable date: {{ nextAvailableClaimDate | date }} (at your time zone)
@@ -123,41 +114,13 @@ export default {
     availableToClaim() {
       return moment() >= moment(this.nextAvailableClaimDate)
     },
-    // percentProgress() {
-    //   if (this.nextAvailableClaimDate === 0) return 100
-    //
-    //   const startDate = this.nextAvailableClaimDate - this.rewardCycleBlock
-    //   const currentProgress = moment().toDate().getTime() - startDate
-    //   const endDate = this.nextAvailableClaimDate
-    //   const delta = endDate - startDate
-    //   const percentage = currentProgress / delta >= 1 ? 1 : currentProgress / delta
-    //
-    //   return ((percentage) * 100).toFixed(0)
-    // },
     estimatedReward() {
       return numeral(this.estimatedBNBClaim < 0.0001 ? 0 : this.estimatedBNBClaim).format('0,0.0000')
     },
     displayedReceivedETH() {
       return numeral(this.bnbReceivedData.ethReceived < 0.0001 ? 0 : this.bnbReceivedData.ethReceived).format('0,0.0000')
     },
-    // daysLeft() {
-    //   const startDate = this.nextAvailableClaimDate
-    //   const eventdate = moment(startDate)
-    //   const todaysdate = moment()
-    //   return eventdate.diff(todaysdate, 'hours')
-    // },
-    // daysDelta() {
-    //   const startDate = this.nextAvailableClaimDate - this.rewardCycleBlock
-    //   const eventdate = moment(startDate)
-    //   const endDate = moment(this.nextAvailableClaimDate)
-    //   return endDate.diff(eventdate, 'days')
-    // },
-    // daysThrough() {
-    //   const startDate = this.nextAvailableClaimDate - this.rewardCycleBlock
-    //   const eventdate = moment(startDate)
-    //   const endDate = moment()
-    //   return endDate.diff(eventdate, 'days')
-    // },
+
     pageTitle() {
       return 'XBC Finance'
     },
