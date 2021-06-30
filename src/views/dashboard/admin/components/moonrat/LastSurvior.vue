@@ -29,7 +29,7 @@
           </div>
           <div class="part-2">
 
-            <div class="count-down" v-if="countdownTimer>0">
+            <div v-if="countdownTimer>0" class="count-down">
               <h3>Countdown until new winner</h3>
               <countdown
                 v-slot="{ days, hours, minutes, seconds }"
@@ -47,13 +47,13 @@
               The last bidder takes 50% of the reward pool
             </h3>
 
-            <div class="text-2">
+            <h2 class="rainbow rainbow_text_animated">
               {{ pool | numFormat }} XBC
-            </div>
+            </h2>
 
-            <div class="text-3">
+            <h3 class="rainbow rainbow_text_animated">
               {{ poolbusd }} USD
-            </div>
+            </h3>
 
           </div>
 
@@ -103,8 +103,8 @@
 
             <div class="content-part">
 
-              <div>
-                <a :href="'https://bscscan.com/address/' + lastBidder" target="_blank">{{ lastBidder }}</a>
+              <div style="with:80px; overflow: hidden">
+                <a class="rainbow rainbow_text_animated" style="font-size: 11px;text-overflow: ellipsis;" :href="'https://bscscan.com/address/' + lastBidder" target="_blank">{{ lastBidder }}</a>
               </div>
 
             </div>
@@ -120,27 +120,20 @@
           </div>
 
           <div class="content-part">
-            The Last Surivor has a 17 minutes countdown timer which will reset on each bid.
+            The Last Surivor has a ~15 minutes (888 seconds) countdown timer which will reset on each bid.
             <br>
             <br>
             Minimum Bid is 1% of the pot.
-            <br>
-            10% of bid will be added to XBN liquidity pool and burned.
-            <br>
+
             <br>
             When the countdown reaches zero, we will have the last survivor and the pot will be distributed:
             <br>
-            50% credited instantly to the last bidders address (the last survivor)
-            <br>
-            33% is carried to the next round
-            <br>
-            17% will be added to XBN liquidity pool and burned
-            <br>
-            <br>
-            Once ended, the new game will start as soon as new fighter join the game.
-            <br>
-            <br>
-
+            <ul>
+              <li>50% credited instantly to the last bidders address (the last survivor)</li>
+              <li>40% is carried to the next round</li>
+              <li>10% will be burned</li>
+              <li>Once ended, the new game will start as soon as new fighter join the game.</li>
+            </ul>
           </div>
 
         </div>
@@ -382,6 +375,31 @@ export default {
     font-weight: bold;
     font-style: italic;
     margin: 50px;
+}
+.rainbow {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 32px;
+  font-family: monospace;
+  letter-spacing: 5px;
+}
+.rainbow_text_animated {
+  background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
+
+@keyframes rainbow_animation {
+  0%,100% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
 }
 </style>
 
