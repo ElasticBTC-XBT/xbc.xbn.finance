@@ -175,7 +175,12 @@ export default {
       this.$set(this, 'lastBidder', result.lastBidder)
       this.$set(this, 'lsPool', result.lsPool)
       const collapseDelay = result.collapseDelay
-      this.$set(this, 'countdownTimer', (new Date().getTime() - collapseDelay * 1000 - result.lastBidTime))
+      let countdownTimer = (collapseDelay * 1000 + result.lastBidTime - new Date().getTime())
+      if (countdownTimer < 0) {
+        countdownTimer = 0
+      }
+
+      this.$set(this, 'countdownTimer', countdownTimer)
     },
     async fetchStatus() {
       await this.fetchContractInfo()
