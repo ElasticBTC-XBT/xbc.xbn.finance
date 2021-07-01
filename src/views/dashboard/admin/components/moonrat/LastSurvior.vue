@@ -17,7 +17,7 @@
         <el-row class="section-2 card-wrapper">
           <el-col :md="12" :sm="12" class="part-1">
             <!--            <img :src="require('@/assets/images/survivor.png')">-->
-            <img src="https://i.imgur.com/2k6Bsi2.gif" />
+            <img src="https://i.imgur.com/2k6Bsi2.gif">
           </el-col>
           <el-col :md="12" :sm="12" class="part-2">
             <div v-if="countdownTimer > 0" class="count-down">
@@ -70,8 +70,13 @@
                     </div>
                   </div>
                   <div v-else class="button-unlock-wallet">
-                    <c-button tag="a" color="primary" wide-mobile @click="play">
-                      Coming Soon!
+                    <p>Amount required to play {{ pool/100| numFormat }} XBC or equivalent value in BNB </p>
+                    <c-button tag="a" color="primary" wide-mobile style="margin-right: 10px" @click="play">
+                      Play with XBC
+                    </c-button>
+
+                    <c-button tag="a" color="primary" wide-mobile @click="play(false)">
+                      Play with BNB
                     </c-button>
                   </div>
                 </div>
@@ -88,7 +93,7 @@
                       style="font-size: 11px; text-overflow: ellipsis"
                       :href="'https://bscscan.com/address/' + lastBidder"
                       target="_blank"
-                      >{{ lastBidder }}</a>
+                    >{{ lastBidder }}</a>
                   </div>
                 </div>
               </div>
@@ -102,14 +107,14 @@
           <div class="content-part">
             The Last Surivor has a ~15 minutes (888 seconds) countdown timer
             which will reset on each bid.
-            <br />
-            <br />
+            <br>
+            <br>
             Minimum Bid is 1% of the pot.
 
-            <br />
+            <br>
             When the countdown reaches zero, we will have the last survivor and
             the pot will be distributed:
-            <br />
+            <br>
             <ul>
               <li>
                 50% credited instantly to the last bidders address (the last
@@ -133,36 +138,39 @@
 // import layout
 // import CLayout from '@/layouts/LayoutDefault.vue'
 // import sections
-import CButton from "@/components/elements/Button.vue";
-import Vue from "vue";
-import VueCountdown from "@chenfengyuan/vue-countdown";
+import CButton from '@/components/elements/Button.vue'
+import Vue from 'vue'
+import VueCountdown from '@chenfengyuan/vue-countdown'
 
-import WalletConnectWrap from "@/components/Mixins/WalletConnectWrap";
+import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 
-Vue.component(VueCountdown.name, VueCountdown);
+Vue.component(VueCountdown.name, VueCountdown)
 
 export default {
-  name: "LastSurvior",
+  name: 'LastSurvior',
   components: {
-    CButton,
+    CButton
   },
   mixins: [WalletConnectWrap],
-  props: ["pool", "poolbusd", "lastBidder", "countdownTimer"],
+  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer'],
   data() {
     return {
       approve_wallet: false,
-      amountApprove: 12.1212,
-    };
+      amountApprove: 12.1212
+    }
   },
   created() {
     // this.$emit('update:layout', CLayout)
   },
   methods: {
     async play() {
-      this.$emit("playLS");
+      this.$emit('playLS')
     },
-  },
-};
+    async playBNB() {
+      this.$emit('playLSBNB')
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .last-survior-wrapper {

@@ -18,6 +18,7 @@
         :pool="lsPool"
         :poolbusd="lsPoolUSD"
         @playLS="play"
+        @playLSBNB="play(true)"
       />
       <panel-group
         :max-tx-amount="contractInfo.maxTxAmount || 0"
@@ -56,7 +57,7 @@ import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 import {
   claimBNBReward,
   getContractInfo,
-  getMoonRatBalance,
+  getXBCBalance,
   subscribeClaimBNBSuccessfully
 } from '@/libs/moonrat'
 import { getLastSurivorInfo, participateLS } from '@/libs/lastsurvivor'
@@ -136,7 +137,7 @@ export default {
       this.$set(this, 'contractInfo', result)
     },
     async fetchCurrentMratBalance() {
-      const result = await getMoonRatBalance(this.walletClient.web3Client)
+      const result = await getXBCBalance(this.walletClient.web3Client)
       this.$set(this, 'mratBalance', result)
     },
     async submitClaimBNB() {
@@ -150,14 +151,13 @@ export default {
         v.loadingCollectBNB = false
       }
     },
-    async play() {
+    async play(using_xbc = false) {
       const v = this
 
       v.loadingCollectBNB = true
 
       try {
-        await participateLS(v.walletClient.web3Client)
-        debugger
+        await participateLS(v.walletClient.web3Client, using_xbc)
         v.loadingCollectBNB = false
       } catch (e) {
         v.loadingCollectBNB = false

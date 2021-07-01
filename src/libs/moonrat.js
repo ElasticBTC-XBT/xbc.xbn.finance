@@ -11,7 +11,7 @@ export const MoonRatLiquidityPool = {
 
 const GasLimit = 1500000
 
-export const getMoonRatContract = async(web3Client) => {
+export const getXBCContract = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
   return new web3Client.eth.Contract(
     MoonRat.jsonInterface.abi,
@@ -23,9 +23,9 @@ export const getMoonRatContract = async(web3Client) => {
   )
 }
 
-export const getMoonRatPoolContract = async(web3Client) => {
+export const getXBCPoolContract = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
-  const contract = await getMoonRatContract(web3Client)
+  const contract = await getXBCContract(web3Client)
   const pairContractAddress = await contract.methods.pancakePair().call()
 
   return new web3Client.eth.Contract(
@@ -38,32 +38,30 @@ export const getMoonRatPoolContract = async(web3Client) => {
   )
 }
 
-// export const getMoonRatAirdropBalance = async(web3Client) => {
-//   const contract = await getMoonRatContract(web3Client)
+// export const getXBCAirdropBalance = async(web3Client) => {
+//   const contract = await getXBCContract(web3Client)
 //   const balance = await contract.methods.balanceOf(MoonRatAirdrop.address).call()
 //   const decimals = await contract.methods.decimals().call()
 //   return balance / (10 ** decimals)
 // }
 
-export const getMoonRatBalance = async(web3Client) => {
+export const getXBCBalance = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
-  const contract = await getMoonRatContract(web3Client)
+  const contract = await getXBCContract(web3Client)
   const balance = await contract.methods.balanceOf(accounts[0]).call()
   return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
 }
 
-export const getXBCBalance = async(web3Client, address) => {
-
-  const contract = await getMoonRatContract(web3Client)
-  const balance = await contract.methods.balanceOf(address).call()
-  return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
+export const getXBCBalanceForAddress = async(web3Client, address) => {
+  const contract = await getXBCContract(web3Client)
+  return await contract.methods.balanceOf(address).call()
 }
 
 export const getContractInfo = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
 
-  const contract = await getMoonRatContract(web3Client)
-  const poolContract = await getMoonRatPoolContract(web3Client)
+  const contract = await getXBCContract(web3Client)
+  const poolContract = await getXBCPoolContract(web3Client)
 
   const maxTXAmount = await contract.methods._maxTxAmount().call()
   const reserves = await poolContract.methods.getReserves().call()
@@ -94,14 +92,27 @@ export const getContractInfo = async(web3Client) => {
 }
 
 export const claimBNBReward = async(web3Client) => {
-  const contract = await getMoonRatContract(web3Client)
+  const contract = await getXBCContract(web3Client)
   await contract.methods.claimBNBReward().send({
     gas: GasLimit
   })
 }
 
+export const getXBCAllowance = async(web3Client, address) => {
+  const contract = await getXBCContract(web3Client)
+  return await contract.methods.allowance(address, process.env.VUE_APP_LS_CONTRACT_ADDRESS).call()
+}
+
+export const approveLS = async(web3Client, amount) => {
+  amount = Number(Math.round(amount)).toString()
+  console.info(`approveLS ${amount}`)
+  const contract = await getXBCContract(web3Client)
+  return await contract.methods.approve(process.env.VUE_APP_LS_CONTRACT_ADDRESS, amount).send({
+    gas: 350000
+  })
+}
 export const disruptiveTransfer = async(web3Client, recipient, amount) => {
-  const contract = await getMoonRatContract(web3Client)
+  const contract = await getXBCContract(web3Client)
   return contract.methods.disruptiveTransfer(
     recipient.toString(),
     web3Client.utils.toWei(amount.toString(), 'gwei')
@@ -112,7 +123,7 @@ export const disruptiveTransfer = async(web3Client, recipient, amount) => {
 }
 
 const subscribeEventChange = async(web3Client, eventName, callback) => {
-  const dealerContract = await getMoonRatContract(web3Client)
+  const dealerContract = await getXBCContract(web3Client)
 
   const eventJsonInterface = web3Client.utils._.find(
     dealerContract._jsonInterface,
