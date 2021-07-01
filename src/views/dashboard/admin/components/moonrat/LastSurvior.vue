@@ -82,9 +82,9 @@
                   </div>
                   <div v-else class="button-unlock-wallet">
                     <p>Amount required to play {{ pool/100| numFormat }} XBC or equivalent value in BNB </p>
-                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="play">
-                      Play with XBC
-                    </c-button>
+<!--                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="play" >-->
+<!--                      Play with XBC-->
+<!--                    </c-button>-->
 
                     <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
                       Play with BNB

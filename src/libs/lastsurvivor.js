@@ -110,10 +110,10 @@ export const participateLS = async(web3Client, using_xbc = true) => {
     if (allowance < playAmount) {
       // approveS
       console.info('start approve')
-      const tx = await approveLS(web3Client, playAmount * 10)
+      const tx = await approveLS(web3Client, (playAmount * 10).toString())
       console.info(`end approve ${tx}`)
     }
-
+    console.info(`playAmount ${playAmount} XBC`)
     const ptx = await contract.methods.participate(playAmount.toString()).send({
       gas: GasLimit
     })
