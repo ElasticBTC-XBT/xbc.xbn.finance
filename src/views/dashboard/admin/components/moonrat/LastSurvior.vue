@@ -45,7 +45,7 @@
                 target="_blank"
               >{{ lastBidder }}</a>
             </div>
-            <h3>The last survivor takes 50% of the reward pool</h3>
+            <h3 style="text-align: center">The last survivor takes 50% of the reward pool</h3>
 
             <h2 class="rainbow rainbow_text_animated">
               {{ pool | numFormat }} XBC
