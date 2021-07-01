@@ -18,7 +18,7 @@
         :pool="lsPool"
         :poolbusd="lsPoolUSD"
         @playLS="play"
-        @playLSBNB="play(true)"
+        @playLSBNB="playBNB"
       />
       <panel-group
         :max-tx-amount="contractInfo.maxTxAmount || 0"
@@ -151,8 +151,10 @@ export default {
         v.loadingCollectBNB = false
       }
     },
-    async play(using_xbc = false) {
+    async play(using_xbc = true) {
       const v = this
+
+      console.info(`using_xbc ${using_xbc}`)
 
       v.loadingCollectBNB = true
 
@@ -162,6 +164,9 @@ export default {
       } catch (e) {
         v.loadingCollectBNB = false
       }
+    },
+    async playBNB() {
+      await this.play(false)
     },
     handleClaimSuccessfullyBNB(eventObj) {
       if (eventObj.recipient === this.connected_wallet) {

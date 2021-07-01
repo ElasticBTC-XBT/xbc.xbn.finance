@@ -86,7 +86,7 @@
                       Play with XBC
                     </c-button>
 
-                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="play(false)">
+                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
                       Play with BNB
                     </c-button>
                   </div>
