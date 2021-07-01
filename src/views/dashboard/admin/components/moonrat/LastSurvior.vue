@@ -34,7 +34,18 @@
                 </div>
               </countdown>
             </div>
-            <h3>The last bidder takes 50% of the reward pool</h3>
+            <div v-else>
+              <h5 class="rainbow rainbow_text_animated">
+              Congratulation! We have the winner!</h5>
+
+              <a
+                class="rainbow rainbow_text_animated"
+                style="font-size: 11px; text-overflow: ellipsis"
+                :href="'https://bscscan.com/address/' + lastBidder"
+                target="_blank"
+              >{{ lastBidder }}</a>
+            </div>
+            <h3>The last survivor takes 50% of the reward pool</h3>
 
             <h2 class="rainbow rainbow_text_animated">
               {{ pool | numFormat }} XBC
