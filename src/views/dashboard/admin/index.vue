@@ -12,7 +12,13 @@
     </div>
 
     <div v-else>
-      <last-survior></last-survior>
+      <last-survior
+        :last-bidder="lastBidder"
+        :countdown-timer="countdownTimer"
+        :pool="lsPool"
+        :poolbusd="lsPoolUSD"
+        @playLS="play"
+      />
       <panel-group
         :max-tx-amount="contractInfo.maxTxAmount || 0"
         :max-bnb-amount="contractInfo.maxBNBAmount || 0"
@@ -22,7 +28,7 @@
         :bnb-in-reward-pool="contractInfo.bnbInPool"
         :mrat-balance="mratBalance"
       />
-      
+
       <section3
         :reward-cycle-block="contractInfo.rewardCycleBlock"
         :estimated-b-n-b-claim="contractInfo.estimatedBNBReward"
@@ -31,16 +37,6 @@
         :loading-collect-b-n-b="loadingCollectBNB"
         @submitClaim="submitClaimBNB"
       />
-      <!-- <section4
-        :max-tx-amount="contractInfo.maxTxAmount || 0"
-        :mrat-balance="mratBalance"
-        :show-popup-disruptive="showPopupDisruptive"
-        :close-loading-disruptive="closeLoadingDisruptive"
-        @disruptiveTransfer="whaleTransfer"
-        @closeDialogDisruptive="closeDialogDisruptive"
-      /> -->
-<!--      <section6 />-->
-      <!--      <section5 />-->
     </div>
 
   </div>
@@ -59,11 +55,11 @@ import { mapGetters } from 'vuex'
 import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 import {
   claimBNBReward,
-  disruptiveTransfer,
   getContractInfo,
   getMoonRatBalance,
   subscribeClaimBNBSuccessfully
 } from '@/libs/moonrat'
+import { getLastSurivorInfo, participateLS } from '@/libs/lastsurvivor'
 // import Section6 from './components/moonrat/Section6'
 
 export default {
@@ -82,6 +78,7 @@ export default {
   data() {
     return {
       contractInfo: {},
+      hasBgColor: false,
       priceFeedData: {
         RAW: {
           BNB: {
@@ -94,7 +91,11 @@ export default {
       mratBalance: 0,
       showPopupDisruptive: false,
       closeLoadingDisruptive: false,
-      loadingCollectBNB: false
+      loadingCollectBNB: false,
+      lastBidder: null,
+      lsPool: 0,
+      lsPoolUSD: 0,
+      countdownTimer: 0
     }
   },
   computed: {
@@ -149,14 +150,17 @@ export default {
         v.loadingCollectBNB = false
       }
     },
-    async whaleTransfer(recipient, amount) {
-      var self = this
+    async play() {
+      const v = this
+
+      v.loadingCollectBNB = true
 
       try {
-        await disruptiveTransfer(self.walletClient.web3Client, recipient, amount)
-        self.showPopupDisruptive = true
+        await participateLS(v.walletClient.web3Client)
+        debugger
+        v.loadingCollectBNB = false
       } catch (e) {
-        self.closeLoadingDisruptive = true
+        v.loadingCollectBNB = false
       }
     },
     handleClaimSuccessfullyBNB(eventObj) {
@@ -165,10 +169,28 @@ export default {
         this.fetchStatus()
       }
     },
+
+    async fetchLSInfo() {
+      // const walletClient = await getWeb3Client()
+      const result = await getLastSurivorInfo(this.walletClient.web3Client)
+      //  this.$set(this, 'lastBidTime', result.lastBidTime)
+      this.$set(this, 'lastBidder', result.lastBidder)
+      this.$set(this, 'lsPool', result.lsPool)
+      this.$set(this, 'lsPoolUSD', result.lsPoolUSD)
+
+      const collapseDelay = result.collapseDelay
+      let countdownTimer = (collapseDelay * 1000 + result.lastBidTime - new Date().getTime())
+      if (countdownTimer < 0) {
+        countdownTimer = 0
+      }
+
+      this.$set(this, 'countdownTimer', countdownTimer)
+    },
     async fetchStatus() {
-      this.fetchContractInfo()
-      this.fetchBNBPrice()
-      this.fetchCurrentMratBalance()
+      await this.fetchContractInfo()
+      await this.fetchBNBPrice()
+      await this.fetchLSInfo()
+      await this.fetchCurrentMratBalance()
     },
     intervalFetchStatus() {
       setInterval(() => {

@@ -52,6 +52,13 @@ export const getMoonRatBalance = async(web3Client) => {
   return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
 }
 
+export const getXBCBalance = async(web3Client, address) => {
+
+  const contract = await getMoonRatContract(web3Client)
+  const balance = await contract.methods.balanceOf(address).call()
+  return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
+}
+
 export const getContractInfo = async(web3Client) => {
   const accounts = await web3Client.eth.getAccounts()
 

@@ -52,19 +52,22 @@ Object.keys(filters).forEach(key => {
 
 Vue.config.productionTip = false
 
-import * as Sentry from '@sentry/vue'
-import { Integrations } from '@sentry/tracing'
-
-Sentry.init({
-  Vue,
-  dsn: 'https://cf8cf8e790f24bd7a4e796ee53667af4@o411253.ingest.sentry.io/5724150',
-  integrations: [new Integrations.BrowserTracing()],
-
-  // Set tracesSampleRate to 1.0 to capture 100%
-  // of transactions for performance monitoring.
-  // We recommend adjusting this value in production
-  tracesSampleRate: 1.0
-})
+// import * as Sentry from '@sentry/vue'
+// import { Integrations } from '@sentry/tracing'
+//
+// Sentry.init({
+//   Vue,
+//   dsn: 'https://cf8cf8e790f24bd7a4e796ee53667af4@o411253.ingest.sentry.io/5724150',
+//   integrations: [new Integrations.BrowserTracing()],
+//
+//   // Set tracesSampleRate to 1.0 to capture 100%
+//   // of transactions for performance monitoring.
+//   // We recommend adjusting this value in production
+//   tracesSampleRate: 1.0
+// })
+import numeral from 'numeral'
+import numFormat from 'vue-filter-number-format'
+Vue.filter('numFormat', numFormat(numeral))
 
 new Vue({
   el: '#app',
