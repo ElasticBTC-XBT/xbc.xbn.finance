@@ -38,6 +38,21 @@ export const getLastSurvivorPoolContract = async(web3Client) => {
     }
   )
 }
+export const getXBCBNBPoolContract = async(web3Client) => {
+  const accounts = await web3Client.eth.getAccounts()
+  // const contract = await getLastSurvivorContract(web3Client)
+  // const pairContractAddress = await contract.methods.pancakePair().call()
+  const pairContractAddress = '0x22dbeC803129009931Bc18a9AEf034510Ce88a51' // XBC BNB pool
+
+  return new web3Client.eth.Contract(
+    LastSurvivorLiquidityPool.jsonInterface.abi,
+    pairContractAddress,
+    {
+      gas: 100000,
+      from: accounts[0]
+    }
+  )
+}
 
 // export const getLastSurvivorAirdropBalance = async(web3Client) => {
 //   const contract = await getLastSurvivorContract(web3Client)
@@ -59,26 +74,19 @@ export const getLastSurivorInfo = async(web3Client) => {
   const contract = await getLastSurvivorContract(web3Client)
   const poolContract = await getLastSurvivorPoolContract(web3Client)
 
-  const reserves = await poolContract.methods.getReserves().call()
-
   const lastBidTime = await contract.methods.lastBidTime().call()
   const lastBidder = await contract.methods.lastBidder().call()
   const collapseDelay = await contract.methods.collapseDelay().call()
   // const estimatedBNBReward = await contract.methods.calculateBNBReward(accounts[0]).call()
   // const rewardCycleBlock = await contract.methods.rewardCycleBlock().call()
-  const lsPool = await getXBCBalanceForAddress(web3Client, LastSurvivor.address) / Math.pow(10,9)
+  const lsPool = await getXBCBalanceForAddress(web3Client, LastSurvivor.address) / Math.pow(10, 9)
+
+  const reserves = await poolContract.methods.getReserves().call()
 
   const {
     '0': xbcBalance, '1': busdBalance
   } = reserves
-
   const lsPoolUSD = (lsPool * busdBalance / xbcBalance / Math.pow(10, 9)).toFixed(3)
-  // lsPoolUSD = Number(web3Client.utils.fromWei(lsPoolUSD.toString(), 'gwei'))
-
-  // const rate = xbcBalance / busdBalance
-
-  // console.log('lsPoolUSD')
-  // console.log(lsPoolUSD)
 
   return {
     lastBidTime: Number(lastBidTime) * 1000,
@@ -92,9 +100,9 @@ export const getLastSurivorInfo = async(web3Client) => {
 
 export const participateLS = async(web3Client, using_xbc = true) => {
   const contract = await getLastSurvivorContract(web3Client)
+  const playAmount = Math.round(await getXBCBalanceForAddress(web3Client, LastSurvivor.address) * 0.013) // 1.3%
   if (using_xbc) {
     const accounts = await web3Client.eth.getAccounts()
-    const playAmount = Math.round(await getXBCBalanceForAddress(web3Client, LastSurvivor.address) * 0.013) // 1.3%
 
     const allowance = await getXBCAllowance(web3Client, accounts[0])
     console.info(`allowance ${allowance}`)
@@ -111,9 +119,18 @@ export const participateLS = async(web3Client, using_xbc = true) => {
     })
     console.info(`participatee ${ptx}`)
   } else {
+    const poolBNBContract = await getXBCBNBPoolContract(web3Client)
+    const reservesBNB = await poolBNBContract.methods.getReserves().call()
+    const {
+      '0': xbcBNBBalance, '1': BNBBalance
+    } = reservesBNB
+
+    const amountBNB = Math.round(playAmount * BNBBalance / xbcBNBBalance)
+    console.info(`amountBNB ${amountBNB}`)
+
     await contract.methods.participate(0).send({
       gas: GasLimit,
-      value: web3Client.utils.toWei('0.00011', 'ether') + 1
+      value: amountBNB.toString()
     })
   }
 }
