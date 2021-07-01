@@ -23,14 +23,14 @@
                 </div>
 
                 <div class="container">
-                    <div class="section-2 card-wrapper">
+                    <el-row class="section-2 card-wrapper">
 
-                        <div class="part-1">
+                        <el-col :md="12" :sm="12" class="part-1">
 
                             <img :src="require('@/assets/images/survivor.png')"/>
 
-                        </div>
-                        <div class="part-2">
+                        </el-col>
+                        <el-col :md="12" :sm="12" class="part-2">
                             <div class="text-1">
                                 Conquer all fighters, <br>
                                 The winner takes it all!
@@ -64,13 +64,13 @@
                                 </c-button>
                             </div>
 
-                        </div>
+                        </el-col>
 
-                    </div>
+                    </el-row>
 
                     <div class="section-3">
-
-                        <div class="part-1 card-wrapper">
+                        <el-row>
+                        <el-col :md="12" :sm="12" class="part-1 card-wrapper">
 
                             <div class="text-1">
                                 Participate
@@ -104,8 +104,8 @@
                             </div>
 
 
-                        </div>
-                        <div class="part-2 card-wrapper">
+                        </el-col>
+                        <el-col :md="12" :sm="12" class="part-2 card-wrapper">
 
                             <div class="text-1">
                                 Last events
@@ -127,9 +127,9 @@
 
                             </div>
 
-                        </div>
+                        </el-col>
 
-
+                        </el-row>
                     </div>
 
                     <div class="section-4 card-wrapper">
@@ -247,7 +247,6 @@
     padding: 0px !important;
 
     .part-1 {
-      width: 50%;
 
       img {
         width: 70%;
@@ -256,7 +255,6 @@
 
     .part-2 {
       text-align: right;
-      width: 50%;
       padding: 30px;
 
       .clock-display {
@@ -286,6 +284,7 @@
         font-weight: bold;
         color: black;
         margin-top: 20px;
+        margin-bottom: 20px;
       }
 
       .text-4 {
@@ -313,8 +312,7 @@
     }
 
     .part-1 {
-      width: 48%;
-
+      
       .text-2 {
         font-size: 15px;
         color: black;
@@ -330,7 +328,6 @@
     }
 
     .part-2 {
-      width: 48%;
       color: black;
 
     }
@@ -401,6 +398,19 @@
     font-weight: bold;
     font-style: italic;
     margin: 50px;
+}
+
+@media (max-width:500px) {
+  .part-1{
+      text-align: center;
+  }
+  .last-survior-wrapper .section-2 .part-2{
+      text-align: center;
+  }
+
+  .last-survior-wrapper .section-3 .part-2{
+      margin-top: 50px;
+  }
 }
 </style>
 

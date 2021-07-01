@@ -231,6 +231,7 @@ export default {
       color: #666;
       background: #fff;
       box-shadow: 0 32px 64px rgb(24 35 52 / 24%);
+      max-height: 248px;
 
       .icon-people {
         color: #dd9c3c;
