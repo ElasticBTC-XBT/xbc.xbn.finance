@@ -84,12 +84,12 @@
                     <p>Amount required to play {{ pool/100| numFormat }} XBC or equivalent value in BNB
                     <br/>You can only play with XBC when you have enough XBC.
                     </p>
-                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="play" >
-                      Play with XBC
-                    </c-button>
 
                     <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
                       Play with BNB
+                    </c-button>
+                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="play" >
+                      Play with XBC
                     </c-button>
                   </div>
                 </div>
