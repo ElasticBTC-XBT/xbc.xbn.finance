@@ -44,6 +44,10 @@
                 :href="'https://bscscan.com/address/' + lastBidder"
                 target="_blank"
               >{{ lastBidder }}</a>
+              <p>
+              <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
+                Claim Reward
+              </c-button></p>
             </div>
             <h3 style="text-align: center">The last survivor takes 50% of the reward pool</h3>
 
