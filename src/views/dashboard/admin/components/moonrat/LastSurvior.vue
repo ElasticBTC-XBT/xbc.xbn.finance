@@ -15,9 +15,9 @@
 
       <div class="container">
         <el-row class="section-2 card-wrapper">
-          <el-col :md="12" :sm="12" class="part-1">
+          <el-col :md="12" :sm="12" class="part-1" id='thumb-gif'>
             <!--            <img :src="require('@/assets/images/survivor.png')">-->
-            <img src="https://i.imgur.com/2k6Bsi2.gif">
+            <img class="thumb-gif-img" id="thumb-gif-img" />
           </el-col>
           <el-col :md="12" :sm="12" class="part-2">
             <div v-if="countdownTimer > 0" class="count-down">
@@ -36,20 +36,24 @@
             </div>
             <div v-if="countdownTimer != null && countdownTimer <=0 ">
               <h5 class="rainbow rainbow_text_animated">
-              Congratulation! We have the winner!</h5>
+                Congratulation! We have the winner!
+              </h5>
 
               <a
                 class="rainbow rainbow_text_animated"
                 style="font-size: 11px; text-overflow: ellipsis"
                 :href="'https://bscscan.com/address/' + lastBidder"
                 target="_blank"
-              >{{ lastBidder }}</a>
+                >{{ lastBidder }}</a
+              >
               <p>
               <el-button :loading="loadingCollectBNB" icon="el-icon-thumb" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
                   Claim Reward
               </el-button></p>
             </div>
-            <h3 style="text-align: center">The last survivor takes 50% of the reward pool</h3>
+            <h3 style="text-align: center">
+              The last survivor takes 50% of the reward pool
+            </h3>
 
             <h2 class="rainbow rainbow_text_animated">
               {{ pool | numFormat }} XBC
@@ -96,7 +100,8 @@
                       style="font-size: 11px; text-overflow: ellipsis"
                       :href="'https://bscscan.com/address/' + lastBidder"
                       target="_blank"
-                    >{{ lastBidder }}</a>
+                      >{{ lastBidder }}</a
+                    >
                   </div>
                 </div>
               </div>
@@ -118,7 +123,7 @@
             <br>
             When the countdown reaches zero, we will have the last survivor and
             the pot will be distributed:
-            <br>
+            <br />
             <ul>
               <li>
                 50% credited instantly to the last bidders address (the last
@@ -142,80 +147,159 @@
 // import layout
 // import CLayout from '@/layouts/LayoutDefault.vue'
 // import sections
-import CButton from '@/components/elements/Button.vue'
-import Vue from 'vue'
-import VueCountdown from '@chenfengyuan/vue-countdown'
+import CButton from "@/components/elements/Button.vue";
+import Vue from "vue";
+import VueCountdown from "@chenfengyuan/vue-countdown";
 
-import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
+import WalletConnectWrap from "@/components/Mixins/WalletConnectWrap";
 
-Vue.component(VueCountdown.name, VueCountdown)
+Vue.component(VueCountdown.name, VueCountdown);
 
 export default {
-  name: 'LastSurvior',
+  name: "LastSurvior",
   components: {
-    CButton
+    CButton,
   },
   mixins: [WalletConnectWrap],
-  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer'],
+  props: ["pool", "poolbusd", "lastBidder", "countdownTimer"],
   data() {
     return {
       approve_wallet: false,
-      amountApprove: 12.1212
-    }
+      amountApprove: 12.1212,
+    };
   },
   created() {
+
+    var lmt = 30;
     // this.$emit('update:layout', CLayout)
+    function httpGetAsync(theUrl, callback) {
+      // create the request object
+      var xmlHttp = new XMLHttpRequest();
+
+      // set the state change callback to capture when the response comes in
+      xmlHttp.onreadystatechange = function () {
+        
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+          callback(xmlHttp.responseText);
+        }
+      };
+
+      // open as a GET call, pass in the url and set async = True
+      xmlHttp.open("GET", theUrl, true);
+
+      // call send with no params as they were passed in on the url string
+      xmlHttp.send(null);
+
+      return;
+    }
+
+    // callback for the top 8 GIFs of search
+    function tenorCallback_search(responsetext) {
+      // parse the json response
+      var response_objects = JSON.parse(responsetext);
+
+      var top_10_gifs = response_objects["results"];
+
+      var i = Math.floor(Math.random() * lmt);
+      
+      // load the GIFs -- for our example we will load the first GIFs preview size (nanogif) and share size (tinygif)
+
+      document.getElementById("thumb-gif-img").src = top_10_gifs[i]["media"][0]["mediumgif"]["url"];
+
+     
+
+      return;
+    }
+
+    // function to call the trending and category endpoints
+    function grab_data() {
+      // set the apikey and limit
+
+      var apikey = "1SHHKX9LOT82";
+
+      // test search term
+      var search_term = "fighting";
+
+      // using default locale of en_US
+      var search_url =
+        "https://g.tenor.com/v1/search?q=" +
+        search_term +
+        "&key=" +
+        apikey +
+        "&limit=" +
+        lmt;
+
+      httpGetAsync(search_url, tenorCallback_search);
+
+      // data will be loaded by each call's callback
+      return;
+    }
+
+    // SUPPORT FUNCTIONS ABOVE
+    // MAIN BELOW
+
+    // start the flowF
+    grab_data();
   },
   methods: {
     async play() {
-      this.$emit('playLS')
+      this.$emit("playLS");
     },
     async playBNB() {
-      this.$emit('playLSBNB')
-    }
-  }
-}
+      this.$emit("playLSBNB");
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
-
-.rainbow2{
+.thumb-gif-img{
+  height: 325px;
+  margin-bottom: -3px;
+}
+.rainbow2 {
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
   padding: 8px 16px;
-  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
-  animation:slidebg 5s linear infinite;
+  background-image: linear-gradient(
+    90deg,
+    #00c0ff 0%,
+    #ffcf00 49%,
+    #fc4f4f 80%,
+    #00c0ff 100%
+  );
+  animation: slidebg 5s linear infinite;
 }
 
-.rainbow1{
+.rainbow1 {
   //background-color: #343A40;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
   padding: 8px 16px;
 
-  background-image:     linear-gradient(
-          to right,
-          red,
-          #E7484F 16.65%,
-          #F68B1D 16.65%,
-          #F68B1D 33.3%,
-          #FCED00 33.3%,
-          #FCED00 49.95%,
-          #009E4F 49.95%,
-          #009E4F 66.6%,
-          #00AAC3 66.6%,
-          #00AAC3 83.25%,
-          #732982 83.25%,
-          #732982 100%,
-          #E7484F 100%
+  background-image: linear-gradient(
+    to right,
+    red,
+    #e7484f 16.65%,
+    #f68b1d 16.65%,
+    #f68b1d 33.3%,
+    #fced00 33.3%,
+    #fced00 49.95%,
+    #009e4f 49.95%,
+    #009e4f 66.6%,
+    #00aac3 66.6%,
+    #00aac3 83.25%,
+    #732982 83.25%,
+    #732982 100%,
+    #e7484f 100%
   );
-  animation:slidebg 13s linear infinite;
+  animation: slidebg 13s linear infinite;
 }
 
 @keyframes slidebg {
   to {
-    background-position:20vw;
+    background-position: 20vw;
   }
 }
 
@@ -263,7 +347,9 @@ export default {
 
     .part-1 {
       img {
-        width: 70%;
+        max-width: 100%;
+        height: auto;
+        max-height: 325px;
       }
     }
 
@@ -323,7 +409,7 @@ export default {
     }
 
     .part-1 {
-        margin-right: 20px;
+      margin-right: 20px;
       .text-2 {
         font-size: 15px;
         color: black;
@@ -446,13 +532,17 @@ export default {
   .last-survior-wrapper .section-2 .part-2 {
     text-align: center;
   }
-.last-survior-wrapper .section-3 .part-1{
+  .last-survior-wrapper .section-2 .part-2 .rainbow{
+    font-size: 16px;
+  }
+  .last-survior-wrapper .section-3 .part-1 {
     margin-right: 0px;
-}
+  }
   .last-survior-wrapper .section-3 .part-2 {
     margin-top: 50px;
     margin-left: 0px;
   }
 }
+
 </style>
 
