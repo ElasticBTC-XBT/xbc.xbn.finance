@@ -316,7 +316,7 @@ export default {
   overflow: hidden;
 }
 .thumb-gif-img{
-  min-height: 250px;
+  min-height: 265px;
 }
 .rainbow2 {
   border-radius: 4px;
