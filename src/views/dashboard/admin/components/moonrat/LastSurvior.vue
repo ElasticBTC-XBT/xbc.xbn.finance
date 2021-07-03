@@ -604,6 +604,9 @@ export default {
     margin-top: 50px;
     margin-left: 0px;
   }
+  .thumb-gif-img{
+    min-height: auto;
+  }
 }
 
 </style>
