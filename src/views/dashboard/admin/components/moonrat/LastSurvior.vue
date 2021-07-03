@@ -17,7 +17,7 @@
         <el-row class="section-2 card-wrapper">
           <el-col :md="12" :sm="12" class="part-1">
             <!--            <img :src="require('@/assets/images/survivor.png')">-->
-            <img src="https://i.imgur.com/2k6Bsi2.gif">
+            <img src="https://i.imgur.com/2k6Bsi2.gif" />
           </el-col>
           <el-col :md="12" :sm="12" class="part-2">
             <div v-if="countdownTimer > 0" class="count-down">
@@ -36,20 +36,31 @@
             </div>
             <div v-else>
               <h5 class="rainbow rainbow_text_animated">
-              Congratulation! We have the winner!</h5>
+                Congratulation! We have the winner!
+              </h5>
 
               <a
                 class="rainbow rainbow_text_animated"
                 style="font-size: 11px; text-overflow: ellipsis"
                 :href="'https://bscscan.com/address/' + lastBidder"
                 target="_blank"
-              >{{ lastBidder }}</a>
+                >{{ lastBidder }}</a
+              >
               <p>
-              <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
-                Claim Reward
-              </c-button></p>
+                <c-button
+                  tag="a"
+                  color="primary"
+                  wide-mobile
+                  style="margin: 10px"
+                  @click="playBNB"
+                >
+                  Claim Reward
+                </c-button>
+              </p>
             </div>
-            <h3 style="text-align: center">The last survivor takes 50% of the reward pool</h3>
+            <h3 style="text-align: center">
+              The last survivor takes 50% of the reward pool
+            </h3>
 
             <h2 class="rainbow rainbow_text_animated">
               {{ pool | numFormat }} XBC
@@ -85,14 +96,28 @@
                     </div>
                   </div>
                   <div v-else class="button-unlock-wallet">
-                    <p>Amount required to play {{ pool/100| numFormat }} XBC or equivalent value in BNB
-                    <br/>You can only play with XBC when you have enough XBC.
+                    <p>
+                      Amount required to play {{ (pool / 100) | numFormat }} XBC
+                      or equivalent value in BNB <br />You can only play with
+                      XBC when you have enough XBC.
                     </p>
 
-                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
+                    <c-button
+                      tag="a"
+                      color="primary"
+                      wide-mobile
+                      style="margin: 10px"
+                      @click="playBNB"
+                    >
                       Play with BNB
                     </c-button>
-                    <c-button tag="a" color="primary" wide-mobile style="margin: 10px" @click="play" >
+                    <c-button
+                      tag="a"
+                      color="primary"
+                      wide-mobile
+                      style="margin: 10px"
+                      @click="play"
+                    >
                       Play with XBC
                     </c-button>
                   </div>
@@ -110,7 +135,8 @@
                       style="font-size: 11px; text-overflow: ellipsis"
                       :href="'https://bscscan.com/address/' + lastBidder"
                       target="_blank"
-                    >{{ lastBidder }}</a>
+                      >{{ lastBidder }}</a
+                    >
                   </div>
                 </div>
               </div>
@@ -124,14 +150,14 @@
           <div class="content-part">
             The Last Surivor has a ~15 minutes (888 seconds) countdown timer
             which will reset on each bid.
-            <br>
-            <br>
+            <br />
+            <br />
             Minimum Bid is 1% of the pot.
 
-            <br>
+            <br />
             When the countdown reaches zero, we will have the last survivor and
             the pot will be distributed:
-            <br>
+            <br />
             <ul>
               <li>
                 50% credited instantly to the last bidders address (the last
@@ -155,39 +181,55 @@
 // import layout
 // import CLayout from '@/layouts/LayoutDefault.vue'
 // import sections
-import CButton from '@/components/elements/Button.vue'
-import Vue from 'vue'
-import VueCountdown from '@chenfengyuan/vue-countdown'
+import CButton from "@/components/elements/Button.vue";
+import Vue from "vue";
+import VueCountdown from "@chenfengyuan/vue-countdown";
 
-import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
+import WalletConnectWrap from "@/components/Mixins/WalletConnectWrap";
 
-Vue.component(VueCountdown.name, VueCountdown)
+Vue.component(VueCountdown.name, VueCountdown);
 
 export default {
-  name: 'LastSurvior',
+  name: "LastSurvior",
   components: {
-    CButton
+    CButton,
   },
   mixins: [WalletConnectWrap],
-  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer'],
+  props: ["pool", "poolbusd", "lastBidder", "countdownTimer"],
   data() {
     return {
       approve_wallet: false,
-      amountApprove: 12.1212
-    }
+      amountApprove: 12.1212,
+    };
   },
   created() {
     // this.$emit('update:layout', CLayout)
+    //1SHHKX9LOT82
+
+    var keyTenor = "1SHHKX9LOT82";
+    var keyword = "fighting";
+    var limit = 30;
+    $.ajax({
+      url: "https://g.tenor.com/v1/search?q=" + keyword + "&key=" + keyTenor + "&limit="+limit,
+      type: 'GET',
+      dataType: 'application/json',
+      success: function(data){
+        console.log('dât', data)
+      },
+      error: function(a, b, c){
+        console.log('get tenor error', a);
+      }
+    })
   },
   methods: {
     async play() {
-      this.$emit('playLS')
+      this.$emit("playLS");
     },
     async playBNB() {
-      this.$emit('playLSBNB')
-    }
-  }
-}
+      this.$emit("playLSBNB");
+    },
+  },
+};
 </script>
 <style lang="scss" scoped>
 .last-survior-wrapper {
@@ -294,7 +336,7 @@ export default {
     }
 
     .part-1 {
-        margin-right: 20px;
+      margin-right: 20px;
       .text-2 {
         font-size: 15px;
         color: black;
@@ -417,9 +459,9 @@ export default {
   .last-survior-wrapper .section-2 .part-2 {
     text-align: center;
   }
-.last-survior-wrapper .section-3 .part-1{
+  .last-survior-wrapper .section-3 .part-1 {
     margin-right: 0px;
-}
+  }
   .last-survior-wrapper .section-3 .part-2 {
     margin-top: 50px;
     margin-left: 0px;
