@@ -235,6 +235,8 @@ export default {
         'surprised',
         'clap',
         'japan',
+        'superman',
+        'weird',
         'woah',
         'smilling',
         'shocked',
