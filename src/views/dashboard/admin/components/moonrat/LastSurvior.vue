@@ -34,7 +34,7 @@
                 </div>
               </countdown>
             </div>
-            <div v-else>
+            <div v-if="countdownTimer != null && countdownTimer <=0 ">
               <h5 class="rainbow rainbow_text_animated">
                 Congratulation! We have the winner!
               </h5>
@@ -47,6 +47,7 @@
                 >{{ lastBidder }}</a
               >
               <p>
+<<<<<<< HEAD
                 <c-button
                   tag="a"
                   color="primary"
@@ -57,6 +58,11 @@
                   Claim Reward
                 </c-button>
               </p>
+=======
+              <el-button :loading="loadingCollectBNB" icon="el-icon-thumb" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
+                  Claim Reward
+              </el-button></p>
+>>>>>>> c5f9c21c6c9fafe7753a9e1fa097d17ea03078c2
             </div>
             <h3 style="text-align: center">
               The last survivor takes 50% of the reward pool
@@ -77,49 +83,21 @@
                 <div class="text-1">Play to win!</div>
 
                 <div class="content-part">
-                  <div v-if="approve_wallet">
-                    <div class="text-2">0 XBC Available</div>
-                    <div class="input-amount">
-                      <el-input v-model="amountApprove" readonly>
-                        <template slot="append"> XBC </template>
-                      </el-input>
-                    </div>
-                    <div class="button-approve">
-                      <c-button
-                        tag="a"
-                        color="primary"
-                        wide-mobile
-                        @click="approveContract"
-                      >
-                        Approve Contract
-                      </c-button>
-                    </div>
-                  </div>
-                  <div v-else class="button-unlock-wallet">
-                    <p>
-                      Amount required to play {{ (pool / 100) | numFormat }} XBC
-                      or equivalent value in BNB <br />You can only play with
-                      XBC when you have enough XBC.
+
+                  <div class="button-unlock-wallet">
+                    <p>Amount required to play {{ pool/100| numFormat }} XBC or equivalent value in BNB
+                      <ul>
+                        <li>You can only play with XBC when you have enough XBC.</li>
+                        <li>Get free XBN or PEPE if you do not win</li>
+                      </ul>
                     </p>
 
-                    <c-button
-                      tag="a"
-                      color="primary"
-                      wide-mobile
-                      style="margin: 10px"
-                      @click="playBNB"
-                    >
+                    <el-button  class="rainbow2"  :loading="loadingCollectBNB" icon="el-icon-aim" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="playBNB">
                       Play with BNB
-                    </c-button>
-                    <c-button
-                      tag="a"
-                      color="primary"
-                      wide-mobile
-                      style="margin: 10px"
-                      @click="play"
-                    >
+                    </el-button>
+                    <el-button class="rainbow1" :loading="loadingCollectBNB" icon="el-icon-video-play" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="play" >
                       Play with XBC
-                    </c-button>
+                    </el-button>
                   </div>
                 </div>
               </div>
@@ -150,11 +128,12 @@
           <div class="content-part">
             The Last Surivor has a ~15 minutes (888 seconds) countdown timer
             which will reset on each bid.
-            <br />
-            <br />
-            Minimum Bid is 1% of the pot.
+            <br>
+            <br>
+            Minimum Bid is 1% of the pot. <b>You will get free $XBN or $PEPE when you play</b>
 
-            <br />
+            <br>
+            <br>
             When the countdown reaches zero, we will have the last survivor and
             the pot will be distributed:
             <br />
@@ -163,8 +142,8 @@
                 50% credited instantly to the last bidders address (the last
                 survivor)
               </li>
-              <li>40% is carried to the next round</li>
-              <li>10% will be burned</li>
+              <li>50% is carried to the next round</li>
+
               <li>
                 Once ended, the new game will start as soon as new fighter join
                 the game.
@@ -232,6 +211,48 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+
+.rainbow2{
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+  background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+  animation:slidebg 5s linear infinite;
+}
+
+.rainbow1{
+  //background-color: #343A40;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 16px;
+
+  background-image:     linear-gradient(
+          to right,
+          red,
+          #E7484F 16.65%,
+          #F68B1D 16.65%,
+          #F68B1D 33.3%,
+          #FCED00 33.3%,
+          #FCED00 49.95%,
+          #009E4F 49.95%,
+          #009E4F 66.6%,
+          #00AAC3 66.6%,
+          #00AAC3 83.25%,
+          #732982 83.25%,
+          #732982 100%,
+          #E7484F 100%
+  );
+  animation:slidebg 13s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+
 .last-survior-wrapper {
   padding-bottom: 100px;
 

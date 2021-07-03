@@ -2,10 +2,8 @@
   <div class="dashboard-editor-container">
 
     <div class="title-show-mobile">
-      XBC Dashboard
+      XBC Playground
     </div>
-
-    <section1 />
 
     <div v-if="!userAccount">
       <section2 />
@@ -40,6 +38,7 @@
       />
     </div>
 
+    <section1 />
   </div>
 </template>
 
@@ -60,7 +59,7 @@ import {
   getXBCBalance,
   subscribeClaimBNBSuccessfully
 } from '@/libs/moonrat'
-import { getLastSurivorInfo, participateLS } from '@/libs/lastsurvivor'
+import {claimLS, getLastSurivorInfo, participateLS} from '@/libs/lastsurvivor'
 // import Section6 from './components/moonrat/Section6'
 
 export default {
@@ -96,7 +95,7 @@ export default {
       lastBidder: null,
       lsPool: 0,
       lsPoolUSD: 0,
-      countdownTimer: 0
+      countdownTimer: null
     }
   },
   computed: {
@@ -160,6 +159,17 @@ export default {
 
       try {
         await participateLS(v.walletClient.web3Client, using_xbc)
+        v.loadingCollectBNB = false
+      } catch (e) {
+        v.loadingCollectBNB = false
+      }
+    },
+    async claimLS() {
+      const v = this
+      v.loadingCollectBNB = true
+
+      try {
+        await claimLS(v.walletClient.web3Client)
         v.loadingCollectBNB = false
       } catch (e) {
         v.loadingCollectBNB = false
