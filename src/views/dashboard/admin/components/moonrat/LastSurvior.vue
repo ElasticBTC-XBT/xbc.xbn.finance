@@ -257,7 +257,7 @@ export default {
     // MAIN BELOW
 
     // start the flowF
-    setInterval(function() { grab_data() }, 5000)
+    setInterval(function() { grab_data() }, 15000)
   },
   methods: {
     async play() {
