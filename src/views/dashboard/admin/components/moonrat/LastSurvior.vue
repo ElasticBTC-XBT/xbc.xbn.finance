@@ -108,7 +108,7 @@
           <div class="text-1">Game Rules</div>
 
           <div class="content-part">
-            The Last Surivor has a ~15 minutes (888 seconds) countdown timer
+            The Last Surivor has a ~ 888 + (Reward Pool/10^9)*5 seconds  countdown timer
             which will reset on each bid.
             <br>
             <br>
