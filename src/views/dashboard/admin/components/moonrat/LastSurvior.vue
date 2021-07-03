@@ -308,10 +308,12 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+#thumb-gif{
+  padding: 20px;
+  vertical-align: middle;
+}
 .thumb-gif-img{
-  //height: 325px;
-  width: 100%;
-  margin: 20px;
+  min-height: 250px;
 }
 .rainbow2 {
   border-radius: 4px;
@@ -407,6 +409,7 @@ export default {
         max-width: 100%;
         height: auto;
         max-height: 325px;
+        margin-bottom: -3px;
       }
     }
 
