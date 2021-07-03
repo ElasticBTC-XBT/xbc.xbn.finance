@@ -313,6 +313,7 @@ export default {
 #thumb-gif{
   padding: 20px;
   vertical-align: middle;
+  overflow: hidden;
 }
 .thumb-gif-img{
   min-height: 250px;
