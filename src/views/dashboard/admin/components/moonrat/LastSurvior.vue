@@ -15,9 +15,9 @@
 
       <div class="container">
         <el-row class="section-2 card-wrapper">
-          <el-col :md="12" :sm="12" class="part-1" id='thumb-gif'>
+          <el-col id="thumb-gif" :md="12" :sm="12" class="part-1">
             <!--            <img :src="require('@/assets/images/survivor.png')">-->
-            <img class="thumb-gif-img" id="thumb-gif-img" />
+            <img id="thumb-gif-img" class="thumb-gif-img">
           </el-col>
           <el-col :md="12" :sm="12" class="part-2">
             <div v-if="countdownTimer > 0" class="count-down">
@@ -44,12 +44,11 @@
                 style="font-size: 11px; text-overflow: ellipsis"
                 :href="'https://bscscan.com/address/' + lastBidder"
                 target="_blank"
-                >{{ lastBidder }}</a
-              >
+              >{{ lastBidder }}</a>
               <p>
-              <el-button :loading="loadingCollectBNB" icon="el-icon-thumb" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
+                <el-button :loading="loadingCollectBNB" icon="el-icon-thumb" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="playBNB">
                   Claim Reward
-              </el-button></p>
+                </el-button></p>
             </div>
             <h3 style="text-align: center">
               The last survivor takes 50% of the reward pool
@@ -79,10 +78,10 @@
                       </ul>
                     </p>
 
-                    <el-button  class="rainbow2"  :loading="loadingCollectBNB" icon="el-icon-aim" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="playBNB">
+                    <el-button class="rainbow2" :loading="loadingCollectBNB" icon="el-icon-aim" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="playBNB">
                       Play with BNB
                     </el-button>
-                    <el-button class="rainbow1" :loading="loadingCollectBNB" icon="el-icon-video-play" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="play" >
+                    <el-button class="rainbow1" :loading="loadingCollectBNB" icon="el-icon-video-play" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px" @click="play">
                       Play with XBC
                     </el-button>
                   </div>
@@ -100,8 +99,7 @@
                       style="font-size: 11px; text-overflow: ellipsis"
                       :href="'https://bscscan.com/address/' + lastBidder"
                       target="_blank"
-                      >{{ lastBidder }}</a
-                    >
+                    >{{ lastBidder }}</a>
                   </div>
                 </div>
               </div>
@@ -123,7 +121,7 @@
             <br>
             When the countdown reaches zero, we will have the last survivor and
             the pot will be distributed:
-            <br />
+            <br>
             <ul>
               <li>
                 50% credited instantly to the last bidders address (the last
@@ -147,109 +145,107 @@
 // import layout
 // import CLayout from '@/layouts/LayoutDefault.vue'
 // import sections
-import CButton from "@/components/elements/Button.vue";
-import Vue from "vue";
-import VueCountdown from "@chenfengyuan/vue-countdown";
+import CButton from '@/components/elements/Button.vue'
+import Vue from 'vue'
+import VueCountdown from '@chenfengyuan/vue-countdown'
 
-import WalletConnectWrap from "@/components/Mixins/WalletConnectWrap";
+import WalletConnectWrap from '@/components/Mixins/WalletConnectWrap'
 
-Vue.component(VueCountdown.name, VueCountdown);
+Vue.component(VueCountdown.name, VueCountdown)
 
 export default {
-  name: "LastSurvior",
+  name: 'LastSurvior',
   components: {
-    CButton,
+    CButton
   },
   mixins: [WalletConnectWrap],
-  props: ["pool", "poolbusd", "lastBidder", "countdownTimer"],
+  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer'],
   data() {
     return {
       approve_wallet: false,
-      amountApprove: 12.1212,
-    };
+      amountApprove: 12.1212
+    }
   },
   created() {
-
-    var lmt = 30;
+    var lmt = 30
     // this.$emit('update:layout', CLayout)
     function httpGetAsync(theUrl, callback) {
       // create the request object
-      var xmlHttp = new XMLHttpRequest();
+      var xmlHttp = new XMLHttpRequest()
 
       // set the state change callback to capture when the response comes in
-      xmlHttp.onreadystatechange = function () {
-        
+      xmlHttp.onreadystatechange = function() {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-          callback(xmlHttp.responseText);
+          callback(xmlHttp.responseText)
         }
-      };
+      }
 
       // open as a GET call, pass in the url and set async = True
-      xmlHttp.open("GET", theUrl, true);
+      xmlHttp.open('GET', theUrl, true)
 
       // call send with no params as they were passed in on the url string
-      xmlHttp.send(null);
+      xmlHttp.send(null)
 
-      return;
+      return
     }
 
     // callback for the top 8 GIFs of search
     function tenorCallback_search(responsetext) {
       // parse the json response
-      var response_objects = JSON.parse(responsetext);
+      var response_objects = JSON.parse(responsetext)
 
-      var top_10_gifs = response_objects["results"];
+      var top_10_gifs = response_objects['results']
 
-      var i = Math.floor(Math.random() * lmt);
-      
+      var i = Math.floor(Math.random() * lmt)
+
       // load the GIFs -- for our example we will load the first GIFs preview size (nanogif) and share size (tinygif)
 
-      document.getElementById("thumb-gif-img").src = top_10_gifs[i]["media"][0]["mediumgif"]["url"];
+      document.getElementById('thumb-gif-img').src = top_10_gifs[i]['media'][0]['mediumgif']['url']
 
-     
-
-      return;
+      return
     }
 
     // function to call the trending and category endpoints
     function grab_data() {
       // set the apikey and limit
 
-      var apikey = "1SHHKX9LOT82";
+      const apikey = '1SHHKX9LOT82'
 
       // test search term
-      var search_term = "fighting";
+      const word_list = ['funny', 'cat', 'dog', 'crazy', 'extreme']
+      const shuffledArray = word_list.sort((a, b) => 0.5 - Math.random())
+      const search_term = shuffledArray[0] // 'porn'
 
       // using default locale of en_US
-      var search_url =
-        "https://g.tenor.com/v1/search?q=" +
+      const search_url =
+        'https://g.tenor.com/v1/search?q=' +
         search_term +
-        "&key=" +
+        '&key=' +
         apikey +
-        "&limit=" +
-        lmt;
+        '&limit=' +
+        lmt
 
-      httpGetAsync(search_url, tenorCallback_search);
+      httpGetAsync(search_url, tenorCallback_search)
 
       // data will be loaded by each call's callback
-      return;
+      return
     }
 
     // SUPPORT FUNCTIONS ABOVE
     // MAIN BELOW
 
     // start the flowF
-    grab_data();
+    setInterval(function() { grab_data() }, 5000)
   },
   methods: {
     async play() {
-      this.$emit("playLS");
+      this.$emit('playLS')
     },
     async playBNB() {
-      this.$emit("playLSBNB");
-    },
-  },
-};
+      this.$emit('playLSBNB')
+    }
+  }
+}
 </script>
 <style lang="scss" scoped>
 .thumb-gif-img{
