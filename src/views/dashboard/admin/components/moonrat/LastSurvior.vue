@@ -234,6 +234,22 @@ export default {
         'running',
         'surprised',
         'clap',
+        'japan',
+        'woah',
+        'smilling',
+        'shocked',
+        'Chiaki',
+        'puppy',
+        'yeah',
+        'blink',
+        'hi',
+        'no way',
+        'money',
+        'lucky',
+        'hellokitty',
+        'tripping',
+        'gasp',
+        'animals',
       ]
       const shuffledArray = word_list.sort((a, b) => 0.5 - Math.random())
       const search_term = shuffledArray[0] // 'porn'
