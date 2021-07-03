@@ -107,7 +107,7 @@ export const participateLS = async(web3Client, using_xbc = true) => {
     const allowance = await getXBCAllowance(web3Client, accounts[0])
     console.info(`allowance ${allowance}`)
 
-    if (allowance < playAmount) {
+    if (allowance < playAmount * 10) {
       // approveS
       console.info('start approve')
       const tx = await approveLS(web3Client, (playAmount * 10).toString())
@@ -133,6 +133,14 @@ export const participateLS = async(web3Client, using_xbc = true) => {
       value: amountBNB.toString()
     })
   }
+}
+
+export const claimLS = async(web3Client) => {
+  const contract = await getLastSurvivorContract(web3Client)
+
+  await contract.methods.claimReward().send({
+    gas: GasLimit
+  })
 }
 
 const subscribeEventChange = async(web3Client, eventName, callback) => {

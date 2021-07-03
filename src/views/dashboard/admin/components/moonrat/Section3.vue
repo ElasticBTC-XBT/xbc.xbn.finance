@@ -2,13 +2,9 @@
   <div class="section-3">
 
     <div class="info-wrapper">
-      <div>
-        My collectable BNB:
-        <span style="margin-left: 20px">{{ estimatedReward }} BNB</span>
-        <span style="margin-left: 20px">
-          <a href="https://docs.xbc.xbn.finance/innovation/earn-bnb" target="_blank"><i class="el-icon-question" /></a>
-        </span>
-      </div>
+      <h2 class="text-reward" style="text-align: center"> Hold $XBC, earn weekly $BNB passive income</h2>
+
+
 
       <!--            <div v-if="percentProgress < 100" class="days-left">-->
       <!--              {{ daysLeft }} hours left to claim-->
@@ -17,7 +13,7 @@
 
     <div class="text-center">
       <h2 v-if="!availableToClaim" style="margin-top: 1.4em" class="text-reward">
-        Next collectable date: {{ nextAvailableClaimDate | date }} (at your time zone)
+        Next earning date: <br/>{{ nextAvailableClaimDate | date }}
       </h2>
     </div>
 
@@ -25,6 +21,11 @@
       <el-button :loading="loadingCollectBNB" icon="el-icon-thumb" type="primary" size="large" :disabled="!availableToClaim || mratBalance === 0" @click="claimBNB">
         Collect my BNB
       </el-button>
+      <p class="text-reward">
+        <span class="">Your weekly earning</span> <br/>
+        <span class="rainbow rainbow_text_animated"> {{ estimatedReward }} BNB  </span> <br/>
+        <a href="https://docs.xbc.xbn.finance/innovation/earn-bnb" target="_blank"><i class="el-icon-question" /></a>
+      </p>
     </div>
 
     <el-dialog
@@ -156,6 +157,28 @@ export default {
 </script>
 <style lang="scss" scoped>
 
+.rainbow {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 32px;
+  font-family: monospace;
+  letter-spacing: 5px;
+}
+.rainbow_text_animated {
+  background: linear-gradient(
+          to right,
+          red,
+          #0099ff,
+          #00ff00,
+          #ff3399,
+          #6666ff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
+}
 .section-3 {
   background-color: white;
   padding: 40px;
