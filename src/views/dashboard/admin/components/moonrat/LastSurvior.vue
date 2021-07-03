@@ -196,7 +196,7 @@ export default {
 
   background-image:     linear-gradient(
           to right,
-          #E7484F,
+          red,
           #E7484F 16.65%,
           #F68B1D 16.65%,
           #F68B1D 33.3%,
@@ -209,10 +209,8 @@ export default {
           #732982 83.25%,
           #732982 100%,
           #E7484F 100%
-
-
   );
-  animation:slidebg 2s linear infinite;
+  animation:slidebg 13s linear infinite;
 }
 
 @keyframes slidebg {
