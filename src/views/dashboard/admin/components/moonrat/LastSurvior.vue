@@ -250,6 +250,28 @@ export default {
         'tripping',
         'gasp',
         'animals',
+        'lespare',
+        'grrr',
+        'dancing',
+        'screaming',
+        'yay',
+        'escape',
+        'shrugs',
+        'hug',
+        'thank you',
+        'yakuza',
+        'happy',
+        'pig',
+        'laugh',
+        'lol',
+        'grin',
+        'omfg',
+        'penguin',
+        'oops',
+        'friends',
+        'hot',
+        'nice',
+        'kiss'
       ]
       const shuffledArray = word_list.sort((a, b) => 0.5 - Math.random())
       const search_term = shuffledArray[0] // 'porn'
