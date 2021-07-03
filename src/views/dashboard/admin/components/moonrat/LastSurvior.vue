@@ -212,7 +212,29 @@ export default {
       const apikey = '1SHHKX9LOT82'
 
       // test search term
-      const word_list = ['funny', 'cat', 'dog', 'crazy', 'extreme']
+      const word_list = ['funny',
+        'cat',
+        'dog',
+        'crazy',
+        'extreme',
+        'excited',
+        'running man',
+        'thank you',
+        'shiba',
+        'doge',
+        'bitcoin',
+        'binance',
+        'love',
+        'girl',
+        'monkey',
+        'baby',
+        'cute',
+        'hmm',
+        'drama',
+        'running',
+        'surprised',
+        'clap',
+      ]
       const shuffledArray = word_list.sort((a, b) => 0.5 - Math.random())
       const search_term = shuffledArray[0] // 'porn'
 
@@ -249,8 +271,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .thumb-gif-img{
-  height: 325px;
-  margin-bottom: -3px;
+  //height: 325px;
+  width: 100%;
+  margin: 20px;
 }
 .rainbow2 {
   border-radius: 4px;
