@@ -314,10 +314,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+#thumb-gif{
+  padding: 20px;
+  vertical-align: middle;
+  overflow: hidden;
+}
 .thumb-gif-img{
-  //height: 325px;
-  width: 100%;
-  margin: 20px;
+  min-height: 265px;
 }
 .rainbow2 {
   border-radius: 4px;
@@ -413,6 +416,7 @@ export default {
         max-width: 100%;
         height: auto;
         max-height: 325px;
+        margin-bottom: -3px;
       }
     }
 
@@ -604,6 +608,9 @@ export default {
   .last-survior-wrapper .section-3 .part-2 {
     margin-top: 50px;
     margin-left: 0px;
+  }
+  .thumb-gif-img{
+    min-height: auto;
   }
 }
 
