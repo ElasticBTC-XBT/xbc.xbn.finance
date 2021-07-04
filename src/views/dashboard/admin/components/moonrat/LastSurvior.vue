@@ -71,7 +71,11 @@
                 <div class="content-part">
 
                   <div class="button-unlock-wallet">
-                    <p>Amount required to play {{ pool/100| numFormat }} XBC or equivalent value in BNB
+                    <p >Amount required to play
+                      <span v-if="pool/100 > 1000000000">
+                      {{ pool/100| numFormat }} </span>
+                      <span v-else>{{ 1000000000| numFormat }} </span>
+                      XBC or equivalent value in BNB
                       <ul>
                         <li>You can only play with XBC when you have enough XBC.</li>
                         <li>Get free XBN or PEPE if you do not win</li>
@@ -115,7 +119,7 @@
             which will reset on each bid.
             <br>
             <br>
-            Minimum Bid is 1% of the pot. <b>You will get free $XBN or $PEPE when you play</b>
+            Minimum Bid is 1% (>= 1000000000 XBC) of the pot. <b>You will get free $XBN or $PEPE when you play</b>
 
             <br>
             <br>
