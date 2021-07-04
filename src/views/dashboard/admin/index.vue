@@ -15,6 +15,7 @@
         :countdown-timer="countdownTimer"
         :pool="lsPool"
         :poolbusd="lsPoolUSD"
+        :xbcbalance="mratBalance"
         @playLS="play"
         @playLSBNB="playBNB"
       />
