@@ -71,13 +71,10 @@
                 <div class="content-part">
 
                   <div class="button-unlock-wallet">
-                    <p>Amount required to play
-                      <span v-if="pool/100 > 1000000000">{{ pool/100| numFormat }} </span>
-                      <span v-else>{{ 1000000000| numFormat }} </span>
-                      XBC or equivalent value in BNB. Click button below to play!
-                      <p class="rainbow rainbow_text_animated" style="font-size: 15px">Free XBN/PEPE airdrop when playing</p>
 
-                    </p>
+                    <p class="rainbow rainbow_text_animated" style="font-size: 15px">Free XBN/PEPE airdrop when playing</p>
+
+                    <p>                    Click button below to play! </p>
 
                     <el-button class="rainbow2" :loading="loadingCollectBNB" icon="el-icon-aim" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="playBNB">
                       Play with BNB
