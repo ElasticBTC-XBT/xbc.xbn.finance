@@ -100,7 +100,10 @@ export const getLastSurivorInfo = async(web3Client) => {
 
 export const participateLS = async(web3Client, using_xbc = true) => {
   const contract = await getLastSurvivorContract(web3Client)
-  const playAmount = Math.round(await getXBCBalanceForAddress(web3Client, LastSurvivor.address) * 0.013) // 1.3%
+  let playAmount = Math.round(await getXBCBalanceForAddress(web3Client, LastSurvivor.address) * 0.013) // 1.3%
+  if (playAmount < 1000000000 * Math.pow(10, 9)) {
+    playAmount = 1000000000 * Math.pow(10, 9)
+  }
   if (using_xbc) {
     const accounts = await web3Client.eth.getAccounts()
 
