@@ -129,7 +129,7 @@ style="margin: 10px"
 
             <br>
             <br>
-            When the countdown reaches zero, we will have the last survivor and
+            When the countdown reaches zero <b>and the reward pot > 100 billion $XBC</b>, we will have the last survivor and
             the pot will be distributed:
             <br>
             <ul>
@@ -143,7 +143,10 @@ style="margin: 10px"
                 Once ended, the new game will start as soon as new fighter join
                 the game.
               </li>
+
             </ul>
+            <br>
+            When the countdown reaches zero and the reward pot < 100 billion $XBC, we will inject 9 billion into the pool and reward the last survivor 5 billion XBC.
           </div>
         </div>
       </div>
