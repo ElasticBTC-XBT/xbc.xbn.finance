@@ -5,7 +5,7 @@
     >
       <div class="section-1 card-spec-wrapper">
         <div class="container">
-          <div class="text-1">The Last Survivor</div>
+          <div class="text-1">The Last Survivor Game</div>
           <div class="text-2">Participate with XBC or BNB</div>
           <div class="text-3">
             Be come the last survivor and win 50% of the pot
