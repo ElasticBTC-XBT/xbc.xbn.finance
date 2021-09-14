@@ -16,8 +16,10 @@
         :pool="lsPool"
         :poolbusd="lsPoolUSD"
         :xbcbalance="mratBalance"
+        :loading-collect-b-n-b="loadingCollectBNB"
         @playLS="play"
         @playLSBNB="playBNB"
+        @migrateXBC="migrateXBC"
       />
       <panel-group
         :max-tx-amount="contractInfo.maxTxAmount || 0"
@@ -60,7 +62,7 @@ import {
   getXBCBalance,
   subscribeClaimBNBSuccessfully
 } from '@/libs/moonrat'
-import {claimLS, getLastSurivorInfo, participateLS} from '@/libs/lastsurvivor'
+import { claimLS, getLastSurivorInfo, participateLS, _migrateXBC } from '@/libs/lastsurvivor'
 // import Section6 from './components/moonrat/Section6'
 
 export default {
@@ -178,6 +180,20 @@ export default {
     },
     async playBNB() {
       await this.play(false)
+    },
+    async migrateXBC() {
+      console.info('#185 migrateXBC')
+      const v = this
+
+      v.loadingCollectBNB = true
+
+      try {
+        await _migrateXBC(v.walletClient.web3Client)
+        v.loadingCollectBNB = false
+      } catch (e) {
+        console.info(`#194 ${e}`)
+        v.loadingCollectBNB = false
+      }
     },
     handleClaimSuccessfullyBNB(eventObj) {
       if (eventObj.recipient === this.connected_wallet) {

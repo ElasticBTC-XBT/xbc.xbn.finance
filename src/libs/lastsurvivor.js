@@ -5,6 +5,16 @@ export const LastSurvivor = {
   jsonInterface: require('../assets/contracts/LastSurvivor.json')
 }
 
+export const XBC = {
+  address: process.env.VUE_APP_XBC_CONTRACT_ADDRESS || '0x0321394309CaD7E0E424650844c3AB3b659315d3',
+  jsonInterface: require('../assets/contracts/XBCToken.json')
+}
+
+export const XBCMigration = {
+  address: process.env.VUE_APP_XBCMigration_CONTRACT_ADDRESS || '0x77C6BB15eac53C710964b19911A59DA473412847',
+  jsonInterface: require('../assets/contracts/XbcMigration.json')
+}
+
 export const LastSurvivorLiquidityPool = {
   jsonInterface: require('../assets/contracts/PancakePair.json')
 }
@@ -16,6 +26,30 @@ export const getLastSurvivorContract = async(web3Client) => {
   return new web3Client.eth.Contract(
     LastSurvivor.jsonInterface.abi,
     LastSurvivor.address,
+    {
+      gas: GasLimit,
+      from: accounts[0]
+    }
+  )
+}
+
+export const getXBCMigrationContract = async(web3Client) => {
+  const accounts = await web3Client.eth.getAccounts()
+  return new web3Client.eth.Contract(
+    XBCMigration.jsonInterface.abi,
+    XBCMigration.address,
+    {
+      gas: GasLimit,
+      from: accounts[0]
+    }
+  )
+}
+
+export const getXBCContract = async(web3Client) => {
+  const accounts = await web3Client.eth.getAccounts()
+  return new web3Client.eth.Contract(
+    XBC.jsonInterface.abi,
+    XBC.address,
     {
       gas: GasLimit,
       from: accounts[0]
@@ -53,20 +87,6 @@ export const getXBCBNBPoolContract = async(web3Client) => {
     }
   )
 }
-
-// export const getLastSurvivorAirdropBalance = async(web3Client) => {
-//   const contract = await getLastSurvivorContract(web3Client)
-//   const balance = await contract.methods.balanceOf(LastSurvivorAirdrop.address).call()
-//   const decimals = await contract.methods.decimals().call()
-//   return balance / (10 ** decimals)
-// }
-//
-// export const getLastSurvivorBalance = async(web3Client) => {
-//   const accounts = await web3Client.eth.getAccounts()
-//   const contract = await getLastSurvivorContract(web3Client)
-//   const balance = await contract.methods.balanceOf(accounts[0]).call()
-//   return Number(web3Client.utils.fromWei(balance.toString(), 'gwei'))
-// }
 
 export const getLastSurivorInfo = async(web3Client) => {
   // const accounts = await web3Client.eth.getAccounts()
@@ -143,6 +163,33 @@ export const claimLS = async(web3Client) => {
 
   await contract.methods.claimReward().send({
     gas: GasLimit
+  })
+}
+
+export const _migrateXBC = async(web3Client) => {
+  const contract = await getXBCMigrationContract(web3Client)
+  const XBCContract = await getXBCContract(web3Client)
+  const accounts = await web3Client.eth.getAccounts()
+
+  const allowance = await XBCContract.methods.allowance(accounts[0], XBCMigration.address).call()
+  const amount = 1000 * 10 ** 9 * 10 ** 9
+
+  if (BigInt(allowance) < amount) {
+    await XBCContract.methods.approve(XBCMigration.address, web3Client.utils.toWei('1000000', 'ether')).send({
+      gas: 100000
+    })
+  }
+
+  let _gasLimit = GasLimit
+  try {
+    _gasLimit = await contract.methods.migrate().estimateGas({gas : GasLimit * 10 })
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error)
+  }
+
+  await contract.methods.migrate().send({
+    gas: _gasLimit * 2
   })
 }
 

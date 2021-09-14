@@ -4,6 +4,34 @@
       class="signin section illustration-section-01 last-survior-wrapper"
     >
       <div class="section-1 card-spec-wrapper">
+
+         <div class="container">
+          <div class="text-1">XBC Migration to XBN & PEPE</div>
+          
+          <div class="text-3">
+            As <a href="https://twitter.com/XbcXbn/status/1437334557443854339">voted by the community in this thread</a>,
+             we are migrating to XBN and PEPE. 
+              <br>
+              <br>
+             Please click below button to start migrate.<br>
+             
+          </div>
+
+         <div>
+           <el-button class="" :loading="loadingCollectBNB" icon="el-icon-s-promotion" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="migrateXBC">
+                      Migrate XBC to XBN & PEPE
+                    </el-button>
+           </div>
+           <div class="text-3">
+             Each time you click, it will migrate maximum of 500 billion XBC to XBN and PEPE.
+             </div>
+
+        </div>
+        
+      </div>
+      <div class="section-1 card-spec-wrapper">
+
+        
         <div class="container">
           <div class="text-1">The Last Survivor Game</div>
           <div class="text-2">Participate with XBC or BNB</div>
@@ -172,7 +200,7 @@ export default {
     CButton
   },
   mixins: [WalletConnectWrap],
-  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer', 'xbcbalance'],
+  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer', 'xbcbalance' , 'loadingCollectBNB'],
   data() {
     return {
       approve_wallet: false,
@@ -188,7 +216,7 @@ export default {
 
       // set the state change callback to capture when the response comes in
       xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
           callback(xmlHttp.responseText)
         }
       }
@@ -330,6 +358,9 @@ export default {
     },
     async playBNB() {
       this.$emit('playLSBNB')
+    },
+    async migrateXBC() {
+      this.$emit('migrateXBC')
     }
   }
 }
