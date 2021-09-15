@@ -20,7 +20,7 @@
 
             Since many holders want to understand how migration will work.
             <br>
-            We will allow to migrate 50 billion XBC to XBN and PEPE for testing for now.
+            We will allow to migrate 100 billion XBC to XBN and PEPE for testing for now.
             <br>
 
             <p style="color: #e3e3e3;">
