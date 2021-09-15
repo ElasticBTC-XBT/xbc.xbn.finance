@@ -3,35 +3,39 @@
     <section
       class="signin section illustration-section-01 last-survior-wrapper"
     >
-      <div class="section-1 card-spec-wrapper">
+      <div class="section-1 migration-wrapper">
 
-         <div class="container">
-          <div class="text-1">XBC Migration to XBN & PEPE</div>
-          
+        <div class="container">
+          <h1>XBC Migration to XBN & PEPE</h1>
           <div class="text-3">
             As <a href="https://twitter.com/XbcXbn/status/1437334557443854339">voted by the community in this thread</a>,
-             we are migrating to XBN and PEPE. 
-              <br>
-              <br>
-             Please click below button to start migrate.<br>
-             
+            we are migrating to XBN and PEPE.
+            <br>
+            As many holders want to understand how migration will work.
+            <br>
+            We will allow to migrate 50 billion XBC to XBN and PEPE for testing for now.
+            <br>
+
+            <p style="color: #e3e3e3;">
+              Please click below button to start migrate.</p>
           </div>
 
-         <div>
-           <el-button class="" :loading="loadingCollectBNB" icon="el-icon-s-promotion" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="migrateXBC">
-                      Migrate XBC to XBN & PEPE
-                    </el-button>
-           </div>
-           <div class="text-3">
-             Each time you click, it will migrate maximum of 500 billion XBC to XBN and PEPE.
-             </div>
+          <div>
+            <el-button class="" :loading="loadingCollectBNB" icon="el-icon-s-promotion" type="primary" size="large" tag="a" color="primary" wide-mobile style="margin: 10px;" @click="migrateXBC">
+              Migrate XBC to XBN & PEPE
+            </el-button>
+          </div>
+          <h3 class="text-3">
+            <br>
+            From 14:00 UTC 17th September. <br>
+            Each time you click, it will migrate maximum of 500 billion XBC to XBN and PEPE.
+          </h3>
 
         </div>
-        
+
       </div>
       <div class="section-1 card-spec-wrapper">
 
-        
         <div class="container">
           <div class="text-1">The Last Survivor Game</div>
           <div class="text-2">Participate with XBC or BNB</div>
@@ -117,7 +121,7 @@
                       tag="a"
                       color="primary"
                       wide-mobile
-style="margin: 10px"
+                      style="margin: 10px"
                       @click="play"
                     >
                       Play with XBC
@@ -200,7 +204,7 @@ export default {
     CButton
   },
   mixins: [WalletConnectWrap],
-  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer', 'xbcbalance' , 'loadingCollectBNB'],
+  props: ['pool', 'poolbusd', 'lastBidder', 'countdownTimer', 'xbcbalance', 'loadingCollectBNB'],
   data() {
     return {
       approve_wallet: false,
@@ -423,6 +427,25 @@ export default {
 
 .last-survior-wrapper {
   padding-bottom: 100px;
+
+  .migration-wrapper {
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+    background-image: linear-gradient(
+      315deg,
+      #ffffff 15%,
+      #f4b151 35%,
+      #935d0f 5%
+    );
+    color:white;
+    h1 {
+      color:white;
+    }
+    h3 {
+      color: darkkhaki
+    }
+  }
 
   .card-spec-wrapper {
     background-color: white;
