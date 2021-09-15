@@ -36,7 +36,7 @@
           <h3 class="text-3">
             <br>
             From 14:00 UTC 17th September. <br>
-            Each time you click, it will migrate maximum of 500 billion XBC to XBN and PEPE.
+            Each time you click, it will migrate maximum of 1000 billion XBC to XBN and PEPE.
           </h3>
 
         </div>
