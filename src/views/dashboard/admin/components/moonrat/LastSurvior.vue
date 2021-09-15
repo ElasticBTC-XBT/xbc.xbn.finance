@@ -11,13 +11,21 @@
             As <a href="https://twitter.com/XbcXbn/status/1437334557443854339">voted by the community in this thread</a>,
             we are migrating to XBN and PEPE.
             <br>
-            As many holders want to understand how migration will work.
+            <ul>
+              <li>50% XBC will be migrated to XBN with bonus 15%, and additional 4 XBN will be compensated for transaction fee. 
+              </li>
+              <li>50% will be migrated to PEPE at market rate
+              </li>
+            </ul>
+
+            Since many holders want to understand how migration will work.
             <br>
             We will allow to migrate 50 billion XBC to XBN and PEPE for testing for now.
             <br>
 
             <p style="color: #e3e3e3;">
-              Please click below button to start migrate.</p>
+              Please click below button to start migrate.
+              Should you have question, please check at <a href="https://t.me/elasticbitcoinxbt">Telegram</a> </p>
           </div>
 
           <div>
